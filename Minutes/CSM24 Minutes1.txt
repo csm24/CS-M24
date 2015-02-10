@@ -1,0 +1,39 @@
+Minutes of Meeting 1: Simon, Ifetayo, Mo, David
+-----------------------------------------------
+Date: 9th Feb 2015
+Start: 15:02
+End: 15:51
+
+Next Meeting: 11th Feb 12:00
+
+Topics Discussed:
+-- Group name decided upon = SwanTech
+-- Team roles discussed based on strengths and preference. 
+	Simon = Customer Interface Manager
+	David = Design Manager
+	Ifetayo = Implementation Manager
+	Mo = Test Manager
+	Planning & Quality Manager = Unassigned and therefore split between members.
+-- Discussed familiarity with software, programming languages and applicable services
+   such as Latex, Java and GitHub. Also considered tutorials to aid with any unfamiliarity. 
+-- Programming software to be used and compared as part of project =  NetBeans vs. Eclipse.
+
+Progress Since Last Meeting:
+-- Facebook group setup to aid communication and organisation.
+-- Shared area set up on blackboard for file storage.
+-- Minute and coding convention guidelines read.
+
+TODO:
+-- Mo = Check JUnit test framework for full testing capability including GUI.
+      = Set up GitHub account and share tutorial links.
+-- Simon = Check with client whether Latex is a requirement or recommendation for project.
+	 = Skeleton for next assignment.
+-- David = View tutorials and get acquainted with Latex and Java programming software.
+	 = Collate team contributions into document for submittal.
+-- Ifetayo = Investigate which version of java will be used and program for project 
+   management(Gantt Chart).
+-- ALL = Ensure relavent software is installed and updated.
+       = Read Doxygen introduction.
+       = Write page on what each member expects to be doing when project is given including an
+	 outline of sections which each member feels needs to be part of the projects documentation.
+	 SEND TO DAVID BY MONDAY 16TH!!
