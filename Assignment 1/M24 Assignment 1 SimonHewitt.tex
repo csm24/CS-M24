@@ -1,0 +1,243 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Assignment\ \#1} % Assignment title
+\newcommand{\hmwkDueDate}{Monday,\ February\ 19,\ 2015} % Due date
+\newcommand{\hmwkClass}{M24} % Course/class
+%\newcommand{\hmwkClassTime}{10:30am} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Ben Mora} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{SwanTech} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+\section{Team Organisation and Collaboration}
+\subsection{Team Name}
+The team agreed unanimously to \textbf{SwanTech} as our team / company name.
+\subsection{Team Organisation}
+The M24 module 2015 has only 4 people attending, but 5 roles are identified in the lecture notes, so we have to split one role. The roles assigned are:\\
+
+\begin{tabular}{ |l|l| }   % BE CAREFUL this is <pipe><lower case l><pipe><lower case l ><pipe> , not 'lllll' as it looks but rather |l|l| !!!
+ \hline
+ Customer Interface Manager & Simon Hewitt  \\ 
+ Design Manager & David Tacey  \\ 
+ Implementation Manager & Ifetayo Agunbiade  \\ 
+ Test Manager & Mohamad Khaleqi \\
+ Planning and Quality Manager  (PQM)& \textit{split between team members:}\\
+ PQM - Team management & David Tacey\\
+ PQM - Version Control and Code Inspections & Simon Hewitt\\
+ PQM - Documentation & Ifetayo Agunbiade\\
+ PQM - Coded Quality & Mohamad Khaleqi \\
+ \hline
+\end{tabular}\\
+
+The team will meet formally each Monday at 15:00, in the Computer Science lab at Faraday 206, and will meet informally to check progress after the Wednesday lectures.
+\\
+Ifetayo is investigating team time management tools that support work breakdown and delivery timelines (WBS and Gantt chart capabilities are needed). This will be an online tool allowing all team members to share and update progress.
+
+\subsection {Team Collaboration}
+The team will collaborate informally through a Facebook group, which has now been set up. Formal documents that are part of the development and delivery will be maintained in GitHub, chosen for its strong team collaboration  capabilities, version control and multi-platform support.
+
+%----------------------------------------------------------------------------------------
+\newpage
+\subsection{Team Role : Customer Interface Manager}
+
+Simon Hewitt will be the Customer Interface Manager, as defined in the lecture slides "Team Roles and Group Work"
+From the lecture notes, 
+the Customer Interface Manager is responsible for:
+\begin{enumerate}
+  \item The team's relationship with it's customers
+  \item Resolving ambiguities in requirements specifications
+\end{enumerate}
+
+To do this I propose the following actions and deliverables:
+\begin{itemize}
+\item Schedule regular meetings with the customers:- Ben Mora and Bob Laramee, to be agreed with them
+\item Create populate and manage a user requirements document
+\item Ensure non-functional requirements meet customer expectations
+\item Create and manage the assumptions and issues list in the project control structure
+\item Ensure the team has understanding of the requirements through formal requirements specification reviews
+\item And ensure team understands requirements by informal discussions at team meetings
+\item Review the designs to ensure they meet the requirements
+\item Review the test plans and test cases to ensure user requirements are tested and validated
+\item Responsible for managing each stage sign-off, ensuring the team deliverables meet the requirements and the customer accepts these deliverables as fit for purpose
+\end{itemize}
+As we will be following a RAD approach rather than a traditional waterfall, the requirements document will not be signed off and frozen, but will be the guide for each RAD development cycle. The requirements specification will be updated as necessary from feedback from RAD delivery and review. We believe that allowing the customer to see, use and feedback on developing work ensures that we are on track to deliver what is really needed rather that what was written down (with the possible ambiguities that can arise from the complex process of documenting requirements). Furthermore, this RAD approach enables the development team to propose improvements and design alternatives that may deliver a better product.
+\\
+\\
+We will investigate  requirement documentation alternatives over the next 14 days. This can range from an Excel spreadsheet to high cost , high complexity commercial offerings designed for huge teams and multi year projects. We will be looking for small scale, preferably open source solutions. 
+
+\subsection{Team Role : Design Manager}
+
+\subsection{Team Role : Implementation Manager}
+
+\subsection{Team Role : Test Manager}
+
+\subsection{Team Role : Planning and Quality Manager}
+
+\subsubsection{PQM - Team Management}
+\subsubsection{PQM - Version Control and Code Inspection}
+This part role will be handled by Simon Hewitt. Version Control is managed by GitHub, so I will ensure the team understand GitHub and how to use it, that they properly use check-out and check-in. I will have control over final deliverable versions, and managing branch merging.
+Code inspection will be peer review across the group. I will investigate mark up tools. The MicroSoft Word document review tools are a powerful tool for team review, I will seek something similar for plain-text code files. 
+\subsubsection{PQM - Documentation}
+\subsubsection{PQM - Code Quality}
+
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Schedule, Format and Quality}
+After searching for suitable document templates, we believe the attached document from the Swiss Federal Institute of Technology, Zurich, provides and excellent template. It is in MicroSoft Word format, so we will reformat into LaTeX, taking the opportunity to omit sections that are not relevant and ensure it fits our needs. This answers the question on format, and contains the necessary guidance on quality management as well. 
+
+\footnote{se.inf.ethz.ch/old/.../Project Plan wo QA, Transition.doc}
+\subsection{Initial Schedule of Work}
+
+\newpage
+\section{Environment}
+
+It is assumed that the project will be developed in Java.
+\\
+The team members use different desktop OS including Linux, OS X and Windows, so tools must support each of these. We have agreements or working assumptions or proposals for all identified software components:\par
+
+\def\mytable{%
+\begin{tabular}{ |p{55mm}|p{65mm}|p{85mm}|}
+ \hline
+ Language & Java & Assumption for the project\\
+IDE & Eclipse or NetBeans & Individual choice\\
+Desktop & OS X, Windows, Linux & Individual Choice\\
+JVM & TBC & Awaiting input from Ifetayo\\
+Source and version control & GitHub & Agreed\\
+Desktop source and version control & none specified, default is Git command line & Individual choice\\
+Documentation & LaTeX & works well with GIT and is a academic standard\\
+Informal Collaboration & Facebook & De facto standard\\
+Testing & JUnit & The most widely used Java testing framework, simple to adopt\\
+Test runner & To be decided & Nightly build and test sequence is desirable\\
+Time Management & TBC (Ifetayo) & Gantt chart, WBS\\
+ \hline
+\end{tabular}
+}
+\scalebox{.78}{\mytable}
+
+
+\end{document}
