@@ -1,0 +1,21 @@
+Minutes of Meeting 2: Simon, Ifetayo, Mo, David
+-----------------------------------------------
+Date: 11th Feb 2015
+Start: 11:50
+End: 12:00
+
+Next Meeting: 16th Feb 15:00
+
+Topics Discussed:
+-- Decided to use Latex for the project write up.
+-- Discussed the use of project management suite visual studio online.
+-- Pages of report coming along well.
+
+Progress Since Last Meeting:
+-- Possible template for project found.
+-- GitHub for the group set up.
+
+TODO:
+-- All = Complete pages for report.
+       = Finish any other tasks set from previous meeting.
+       = Think about timeline/activity schedule to be followed when project specifications given.
