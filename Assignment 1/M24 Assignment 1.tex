@@ -27,6 +27,16 @@
 \usepackage{graphicx} % Required to insert images
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 
+%------------------------------------------added package by MOHO
+%\usepackage{comment} % Comment
+\usepackage{verbatim} %comment package
+\usepackage[utf8]{inputenc} 
+\usepackage{url} % URL in Footnote  ??? 
+\usepackage{cite} % BibLatex
+\usepackage[table]{xcolor}
+\usepackage{csquotes} %Quotation
+
+
 % Margins
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -131,8 +141,8 @@
 
 %\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
 
-%\newpage
-%\tableofcontents
+\newpage
+\tableofcontents
 \newpage
 \section{Team Organisation and Collaboration}
 \subsection{Team Name}
@@ -194,8 +204,45 @@ We will investigate  requirement documentation alternatives over the next 14 day
 
 \subsection{Team Role : Implementation Manager}
 
+\newpage
 \subsection{Team Role : Test Manager}
+Test manager role will be \textit{Mohamad Khaleqi} resposibility. The test manager roles is a task with responsibility for the test effort's\footnote{Testing is the process of evaluating a system and the components to check if they are working correctly or not. Basically, it means to check the system to find errors, gaps, bugs and missing requirement or on the other words testing is a process of analysing a software to detect the difference between existing and required conditions.
+} success. This role involves codes quality and codes testing. For test manager there are some roles:
+\begin{itemize}
+ \item understanding the testing by analyzing the project requirements.
+ \item Organize the testing meeting.
+ \item Develope the test plan.
+ \item Arrange the software and hardware requirement for the test.
+ \item Document all testing result and prepare a report.
+ \item Communicate with team's members.
+\end{itemize}
+In order to do these, I should:
+\begin{itemize}
+ \item Prepare Unit testing e.g. JUnit\footnote{Testing will not catch every error in the program, because it cannot evaluate every execution path in any but the most trivial programs. The same is true for unit testing. Additionally, unit testing by definition only tests the functionality of the units themselves. Therefore, it will not catch integration errors or broader system-level errors (such as functions performed across multiple units, or non-functional test areas such as performance). Unit testing should be done in conjunction with other software testing activities, as they can only show the presence or absence of particular errors; they cannot prove a complete absence of errors. In order to guarantee correct behavior for every execution path and every possible input, and ensure the absence of errors, other techniques are required, namely the application of formal methods to proving that a software component has no unexpected behavior.
+}
+ \item Integration testing\footnote{In some books it is called as Component testing.}There are two types of testing:
+\begin{itemize}
+\item Button-up integration testing. \\
+begin with Unit testing and then moving to higher level combinations of units called modules or builds.
+\item Top-Down integration testing.\\
+In this test, first higher level modules are tested and then low level module. 
+\end{itemize}
+In developing software process, usually Button-up integration test happens first and then Top-Down integration test.~\cite{sommerville2009software}
 
+ \item Software testing (Testing and debugging)
+ \item Black Box and white Box
+ \item Alpha and Beta testing
+ \item Regression testing
+ \item Ensure the team has understanding of the testing methods and also terms in testing unit. 
+\end{itemize}
+
+\begin{comment}
+Software testing is a combinatorial problem. For example, every boolean decision statement requires at least two tests: one with an outcome of "true" and one with an outcome of "false". As a result, for every line of code written, programmers often need 3 to 5 lines of test code.\cite{myers2011art} This obviously takes time and its investment may not be worth the effort. There are also many problems that cannot easily be tested at all – for example those that are nondeterministic or involve multiple threads. In addition, code for a unit test is likely to be at least as buggy as the code it is testing. 
+\end{comment}
+
+
+
+\newpage
 \subsection{Team Role : Planning and Quality Manager}
 
 \subsubsection{PQM - Team Management}
@@ -204,6 +251,31 @@ This part role will be handled by Simon Hewitt. Version Control is managed by Gi
 Code inspection will be peer review across the group. I will investigate mark up tools. The MicroSoft Word document review tools are a powerful tool for team review, I will seek something similar for plain-text code files. 
 \subsubsection{PQM - Documentation}
 \subsubsection{PQM - Code Quality}
+This part will be Mohamad Khaleqi resposibility. In order to check the code quality in Java, First I will use Eclipse IDE because of autamatic code indentation and auto formating. Then I will make sure the code is following Bob's Concise Coding Conventions and also Doxygen. In addition to have better and tidy code, I will use CodePro Analytix \footnote{CodePro Analytix is the premier Java software testing tool for Eclipse developers who are concerned about improving software quality and reducing developments costs and schedules. More info: \url{https://developers.google.com/java-dev-tools/codepro/doc/}} and PMD\footnote{ PMD is a source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth.More info: \url{http://pmd.sourceforge.net/}} which they are both Eclipse plugin. They are both perfectly fine with any problem in the code and both are compatible with Java code. For code quality I will use LTFCE definition. The code over its lifetime will be read many more times than written. So, good code is: 
+\begin{itemize}
+ \item \textbf{L}egible: Only the code(Not comment) should clearly state the indent and reader should easily make sense of the code.
+ \item \textbf{T}estable: The could will be in the way that unit tester can do its job.
+ \item \textbf{F}elxible: Dependencies, both on other code in the code base and arbitrary implementation choices, should be minimized.
+ \item \textbf{C}omplaint: The code itself should be correct and meet the system requirements.
+ \item \textbf{E}conomical: The code should be responsible in terms of using system resources e.g. memory and CPU.
+ 
+\end{itemize}
+
+\begin{comment}
+Legible - The code (the code itself, not comments) should clearly state the intent. If the reader can not make sense of the code, than all other efforts are doomed to frustration if not outright failure.
+
+Testable - The code should be organized in a way that facilitates unit testing. That supports all subsequent efforts (refactoring for modification, correction of defects, revision due to changed specs, etc.)
+
+Flexible - Dependencies, both on other code in the code base and arbitrary implementation choices, should be minimized. Hard-coded assumptions about data size, concrete classes or data structures, etc. make the code more brittle, and therefore harder to reuse or adapt.
+
+Compliant - The code should comply with its requirements, functional and otherwise. (I don't state this as "correct" because the discussion about whether the requirements themselves were the "right" requirements is about the process or the environment, not about the code.)
+
+Economical - The code should make reasonable use of system resources: memory, CPU, etc. (I don't state this as "efficient" because that word is too often misused, by limiting it to a single aspect, such as speed. Economy is simply about return on investment, and requires thought about all the resources being invested and all the measures of return.)
+
+The point of insisting that these be considered in order is that each property supports the ones that follow. For example, defects (failure to comply with specs) in code which is legible, testable, and flexible can probably be corrected with reasonable effort. On the other hand, I suspect that every programmer has had experience with code which was micro-optimized for performance to the point that it was too brittle for reasonable maintenance.
+
+\end{comment}
+
 
 %----------------------------------------------------------------------------------------
 \newpage
@@ -239,5 +311,9 @@ Time Management & TBC (Ifetayo) & Gantt chart, WBS\\
 }
 \scalebox{.78}{\mytable}
 
+\clearpage
+\pagebreak
+\bibliography{csm24}{}
+\bibliographystyle{ieeetr}
 
 \end{document}
