@@ -62,6 +62,11 @@
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
+% Table Code Added by Ifetayo
+\usepackage{tabulary}
+\usepackage{fixltx2e}
+\usepackage{tabularx}
+\newcommand{\head}[1]{\textnormal{\textbf{#1}}}
 %----------------------------------------------------------------------------------------
 %	DOCUMENT STRUCTURE COMMANDS
 %	Skip this unless you know what you're doing
@@ -110,7 +115,7 @@
 %----------------------------------------------------------------------------------------
 
 \newcommand{\hmwkTitle}{Assignment\ \#1} % Assignment title
-\newcommand{\hmwkDueDate}{Monday,\ February\ 19,\ 2015} % Due date
+\newcommand{\hmwkDueDate}{Wednesday,\ February\ 18,\ 2015} % Due date
 \newcommand{\hmwkClass}{M24} % Course/class
 %\newcommand{\hmwkClassTime}{10:30am} % Class/lecture time
 \newcommand{\hmwkClassInstructor}{Ben Mora} % Teacher/lecturer
@@ -165,7 +170,7 @@ The M24 module 2015 has only 4 people attending, but 5 roles are identified in t
  Planning and Quality Manager  (PQM)& \textit{split between team members:}\\
  PQM - Team management & David Tacey\\
  PQM - Version Control and Code Inspections & Simon Hewitt\\
- PQM - Documentation & Ifetayo Agunbiade\\
+ PQM - Code Documentation & Ifetayo Agunbiade\\
  PQM - Coded Quality & Mohamad Khaleqi \\
  \hline
 \end{tabular}\\
@@ -201,28 +206,102 @@ To do this I propose the following actions and deliverables:
 \item Review the test plans and test cases to ensure user requirements are tested and validated
 \item Responsible for managing each stage sign-off, ensuring the team deliverables meet the requirements and the customer accepts these deliverables as fit for purpose
 \end{itemize}
-As we will be following a RAD approach rather than a traditional waterfall, the requirements document will not be signed off and frozen, but will be the guide for each RAD development cycle. The requirements specification will be updated as necessary from feedback from RAD delivery and review. We believe that allowing the customer to see, use and feedback on developing work ensures that we are on track to deliver what is really needed rather that what was written down (with the possible ambiguities that can arise from the complex process of documenting requirements). Furthermore, this RAD approach enables the development team to propose improvements and design alternatives that may deliver a better product.
+As we will be following a RAD approach rather than a traditional waterfall, the requirements document will not be signed off and frozen, but will be the guide for each RAD development cycle. The requirements specification will be updated as necessary from feedback from RAD delivery and review. We believe that allowing the customer to see, use and give feedback on developing work ensures that we are on track to deliver what is really needed rather that what was written down (with the possible ambiguities that can arise from the complex process of documenting requirements). Furthermore, this RAD approach enables the development team to propose improvements and design alternatives that may deliver a better product.
 \\
 \\
 We will investigate  requirement documentation alternatives over the next 14 days. This can range from an Excel spreadsheet to high cost , high complexity commercial offerings designed for huge teams and multi year projects. We will be looking for small scale, preferably open source solutions. 
-
+\newpage
 \subsection{Team Role : Design Manager}
-
+\newpage
 \subsection{Team Role : Implementation Manager}
+This is role is to be handled by Ifetayo Agunbiade. Based on careful requirements and specification analysis of a given task or project implementation of the project features can commence. The responsibilities tied to this role deals with the implementation and project management strategies the company applies to building products that meet the requirements of the client. 
+\subsubsection{Responsibilities}
+\begin{itemize}
+\item
+Make sure there is adequate information about the project specification and software requirements
+\item
+Engage all team members in designing a decisive plan for writing of the program code
+\item
+Make sure all team members adhere to the coding and documentation conventions \cite{bobs3cs}
+\item
+Engage every team member in coming up with technical solutions
+\item
+Engaging every team member in identifying specification implementation
+\item
+Coordinating the team, assigning tasks and also making sure each team member has sufficient knowledge of how to go about implementation
+\item
+Liaise with the customer interface manager to make sure implementation and features development are in-line with the scope requirement and time schedule
+\item
+Engage team members in the assignment of sprint and tracking progress
+\item
+Determination of the time for deliverables. Development of a work schedule, work breakdown, and determining a date for completion
+\item
+Handling risk associated with failure of task completion
+\end{itemize}
+\subsubsection{Versioning}
+A versioning scheme starting from 0.1 and incremented to 1.0 for the first release of the software, where 1.0 indicate final completion/release of the software. Code versioning would be managed with Git. The first product release would take the version 1.0. Project software is to be held in a repository, each project repository would have 4 main branches
+\begin{itemize}
+\item
+Master Branch
+\item
+Testing Branch
+\item
+Development Branch
+\item
+Individual Developer Branch(es)
+\end{itemize}
+This would make it easy to identify development stages, apply bugs fixes without affecting already working code, separate development processes and code modularity by tasks, features and subsystems. Designing the repository in this way ensures that any change in the code follows a process and moves in one direction from features Development Stage to Testing Staging to Master (Production stage).
+\subsubsection{Master Branch}
+For the project the master branch represents the software in its production state containing the accepted features after it has gone through the development stages, technical reviews and integration testing. At every stage of the project implementation the master branch must always run and be void of defects or errors. The master branch is always to be stable and form a functional working software.
+\subsubsection{Testing Branch}
+This branch contains project software code that has gone through, and passed code reviews for conformance with the agreed features. Code in this branch is to be tested. At this stage all team members would review test codes, and apply changes as applicable. Once the code in this stage is approved it is merged to the master branch.
+\subsubsection{Development Branch}
+This branch contains code merged from the individual developer branch. Here the entire branch is checked for conformance with coding conventions, software development best practices and code documentation. Upon code reviews, this branch is pushed to the testing branch for further testing. For the code to advance from this stage all team members must review all codes, ensure adherence to coding conventions, best programming practices, and make sure the appropriate features have been implemented according to requirements.
+\subsubsection{Individual Branch}
+This branch may contain individual developer branch(es) of the project code. Each branch is to be cloned from the working Master branch (Production branch). Code push is done to the development staging branch for further review.
+\subsubsection{Development Process}
+Development paradigms like MVC and third party frameworks/libraries maybe used in-order to facilitate implementation. Adoption of such software development models or third party software would need to be used according to how they suit the given project. The software architecture and methodology to be followed in the implementation of the software are all subject to the agreed design specification. As with proper implementation, design comes first and implementation would be tailored according to the design approach. Development processes would take an iterative and incremental approach so as to accommodate any changes to the project requirements where frequent customer collaborations and input is seeked from time to time through the customer interface manager instead of having a closed implementation scheme where once the requirements are made available changes are difficult to make.
+
+\subsubsection{Software Platform and Development Environment}
+The Java version 7 or latest version would be used. Netbeans or eclipse would be used as the standard development environment.
+\subsubsection{Coding and Documentation Convention}
+Bob's Concise Coding Conventions is used as the coding convention to be followed in development \cite{bobs3cs}. Doxygen would be used in code documentation and the rules stated in Bob's Concise Introduction are to be followed.
+
+\subsubsection{Deliverables Schedule}
+
+\begin{tabular}{| p{0.5cm} | p{1.5cm} | p{5cm} | p {9cm}|}
+\hline
+  \head{S/N} & \head{Week} & \head{Tasks} & \head{Deliverables}\\
+ \hline
+ 1 &  Week 1 & Identify all tasks and features required. Work break down. Identify objectives and feasibilities. Determine an architecture of implementation. Project development. & Methods/tools for monitoring implementation progress. Establishment of an implementation model to be followed. Sprints assigned to individual team members. Repository set-up. Java and git training plan if necessary. Plan for next week.\\
+\hline
+ 2 &  Week 2 & Iteration of tasks from the week before. Development may be redefined to accommodate changes in the requirements & Progress report. Supplementary specifications (if any). Assessment of specification changes to delivery time, team source code and documentation review. Bug fixes. Deployment of finished features/tasks to master branch. Push working code to test staging environment for testing. Plan for next week\\
+\hline
+ 3 &  Week 3 & Iteration of tasks from the week before. Development may be redefined to accommodate changes in the requirements & Team source code and documentation review. Progress report and possible risk assessment. Bug fixes. Push working code to test staging environment for testing.\\
+\hline
+ 4 &  Week 4 & Integration phase & Team source code and documentation review. Progress report and possible risk assessment. Bug fixes. Push working code to test staging environment for testing. Plan for final deployment.\\
+\hline
+ 5 &  Week 5 & Integration phase & Integration of the development branch to the testing branch. Source code and documentation review. Final deployment and test plans. Project sign off.\\
+\hline
+\end{tabular}
+
+Assumptions like the number of weeks to be spent on the implementation is subjective to change. It might be longer or fast tracked to meet delivery time.
+\subsubsection{Task and Risk Management}
+After design, specification and requirements analysis, work would be distributed amongst team members. Sprints would be set-up using visual studio online TFS (Team Foundation Server) and Gnatt chart project planner as applicable. Visual reporting would be made available to each team member so they can track development progress and identify risks in terms of tasks not being completed as scheduled. In software development there is always a possibility of failure of some type of process so it is important every team member has access to information that helps identify, assess, and monitor progress of each development phase or feature. TFS provides online tools to help us manage time, help in planning and timely resolution of risks.
 
 \newpage
 \subsection{Team Role : Test Manager}
-Test manager role will be \textit{Mohamad Khaleqi} resposibility. The test manager roles is a task with responsibility for the test effort's\footnote{Testing is the process of evaluating a system and the components to check if they are working correctly or not. Basically, it means to check the system to find errors, gaps, bugs and missing requirement or on the other words testing is a process of analysing a software to detect the difference between existing and required conditions.
+Test manager role will be \textit{Mohamad Khaleqi} responsibility. The test manager roles is a task with responsibility for the test effort's\footnote{Testing is the process of evaluating a system and the components to check if they are working correctly or not. Basically, it means to check the system to find errors, gaps, bugs and missing requirement or on the other words testing is a process of analysing a software to detect the difference between existing and required conditions.
 } success. This role involves codes quality and codes testing. For test manager there are some roles:
 \begin{itemize}
  \item understanding the testing by analyzing the project requirements.
  \item Organize the testing meeting.
- \item Develope the test plan.
+ \item Develop the test plan.
  \item Arrange the software and hardware requirement for the test.
  \item Document all testing result and prepare a report.
- \item Communicate with team's members.
+ \item Communicate with team members.
 \end{itemize}
-In order to do these, I should:
+In order to perform this role, I should:
 \begin{itemize}
  \item Prepare Unit testing e.g. JUnit\footnote{Testing will not catch every error in the program, because it cannot evaluate every execution path in any but the most trivial programs. The same is true for unit testing. Additionally, unit testing by definition only tests the functionality of the units themselves. Therefore, it will not catch integration errors or broader system-level errors (such as functions performed across multiple units, or non-functional test areas such as performance). Unit testing should be done in conjunction with other software testing activities, as they can only show the presence or absence of particular errors; they cannot prove a complete absence of errors. In order to guarantee correct behavior for every execution path and every possible input, and ensure the absence of errors, other techniques are required, namely the application of formal methods to proving that a software component has no unexpected behavior.
 }
@@ -252,16 +331,18 @@ Software testing is a combinatorial problem. For example, every boolean decision
 \subsection{Team Role : Planning and Quality Manager}
 
 \subsubsection{PQM - Team Management}
+As stated in the implementation stage, project and team management would be done using the tools TFS and gnatt charts. These tools would give a visual report on progress made by each team member. Allocation of task sprints and risk management would be facilitated with the use of the said tools.
 \subsubsection{PQM - Version Control and Code Inspection}
-This part role will be handled by Simon Hewitt. Version Control is managed by GitHub, so I will ensure the team understand GitHub and how to use it, that they properly use check-out and check-in. I will have control over final deliverable versions, and managing branch merging.
+This part will be handled by Simon Hewitt. Version Control is managed by GitHub, so I will ensure the team understand GitHub and how to use it, that they properly use check-out and check-in. I will have control over final deliverable versions, and managing branch merging.
 Code inspection will be peer review across the group. I will investigate mark up tools. The MicroSoft Word document review tools are a powerful tool for team review, I will seek something similar for plain-text code files. 
-\subsubsection{PQM - Documentation}
+\subsubsection{PQM - Code Documentation}
+This part will be handled by Ifetayo Agunbiade. Here all implementation code are checked that they are properly documented. Doxygen would be used in code documentation generation.
 \subsubsection{PQM - Code Quality}
-This part will be Mohamad Khaleqi resposibility. In order to check the code quality in Java, First I will use Eclipse IDE because of autamatic code indentation and auto formating. Then I will make sure the code is following Bob's Concise Coding Conventions and also Doxygen. In addition to have better and tidy code, I will use CodePro Analytix \footnote{CodePro Analytix is the premier Java software testing tool for Eclipse developers who are concerned about improving software quality and reducing developments costs and schedules. More info: \url{https://developers.google.com/java-dev-tools/codepro/doc/}} and PMD\footnote{ PMD is a source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth.More info: \url{http://pmd.sourceforge.net/}} which they are both Eclipse plugin. They are both perfectly fine with any problem in the code and both are compatible with Java code. For code quality I will use LTFCE definition. The code over its lifetime will be read many more times than written. So, good code is: 
+This part will be handled by Mohamad Khaleqi. In order to check the code quality in Java, First I will use Eclipse IDE because of automatic code indentation and auto formatting. Then I will make sure the code is following Bob's Concise Coding Conventions and also Doxygen. In addition to have better and tidy code, I will use CodePro Analytix \footnote{CodePro Analytix is the premier Java software testing tool for Eclipse developers who are concerned about improving software quality and reducing developments costs and schedules. More info: \url{https://developers.google.com/java-dev-tools/codepro/doc/}} and PMD\footnote{ PMD is a source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth.More info: \url{http://pmd.sourceforge.net/}} which they are both Eclipse plugins. They are both perfectly fine with any problem in the code and both are compatible with Java code. For code quality I will use LTFCE definition. The code over its lifetime will be read many more times than written. So, good code is: 
 \begin{itemize}
  \item \textbf{L}egible: Only the code(Not comment) should clearly state the indent and reader should easily make sense of the code.
  \item \textbf{T}estable: The could will be in the way that unit tester can do its job.
- \item \textbf{F}elxible: Dependencies, both on other code in the code base and arbitrary implementation choices, should be minimized.
+ \item \textbf{F}lexible: Dependencies, both on other code in the code base and arbitrary implementation choices, should be minimized.
  \item \textbf{C}omplaint: The code itself should be correct and meet the system requirements.
  \item \textbf{E}conomical: The code should be responsible in terms of using system resources e.g. memory and CPU.
  
@@ -297,7 +378,7 @@ When we receive the project requirements on 18/2/15, the initial actions are:
   \item Arrange a team meeting as soon as possible to review the document
   \item Set up and populate an open issues register, add all open questions to the register (Simon)
   \item Initial decomposition into work domains, arranged by team strengths as far as possible
-  \item Create a first draft WBS \footnote{Work Breakdown Structure, a simple way to magae deliverables in a project (http://en.wikipedia.org/wiki/Work\_breakdown\_structure)} structure and assign names and target dates to each work package.
+  \item Create a first draft WBS \footnote{Work Breakdown Structure, a simple way to manage deliverables in a project (http://en.wikipedia.org/wiki/Work\_breakdown\_structure)} structure and assign names and target dates to each work package.
   \item Customer Interface Manager (SH) to arrange meeting(s) with Ben Mora to resolve all open questions.
   \item Test Manager (MK) to create outline test plan, showing what elements will be tested by which techniques, and setting up any necessary infrastructure.
   \item Design Manager (DT) to create high level design
@@ -317,14 +398,14 @@ The team members use different desktop OS including Linux, OS X and Windows, so 
  Language & Java & Assumption for the project\\
 IDE & Eclipse or NetBeans & Individual choice\\
 Desktop & OS X, Windows, Linux & Individual Choice\\
-JVM & TBC & Awaiting input from Ifetayo\\
+JVM & Java version 7 & Awaiting input\\
 Source and version control & GitHub & Agreed\\
 Desktop source and version control & none specified, default is Git command line & Individual choice\\
 Documentation & LaTeX & works well with GIT and is a academic standard\\
 Informal Collaboration & Facebook & De facto standard\\
 Testing & JUnit & The most widely used Java testing framework, simple to adopt\\
 Test runner & To be decided & Nightly build and test sequence is desirable\\
-Time Management & TBC (Ifetayo) & Gantt chart, WBS\\
+Time Management & TFS and Gnatt chart & Gantt chart, WBS\\
  \hline
 \end{tabular}
 }
