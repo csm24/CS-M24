@@ -1,0 +1,25 @@
+Minutes of Meeting 3: Simon, Ifetayo, Mo, David
+-----------------------------------------------
+Date: 16th Feb 2015
+Start: 15:03
+End: 15:22
+
+Next Meeting: 18th Feb 12:00
+
+Topics Discussed:
+-- Mo found a plugin for eclipse which allows testing of GUI and other plugins to aid code quality namely PMD and CodePro Analytix.
+-- Discussed how the code repository is to function in relation to errors and branches.
+-- Submittal process for the assignment.
+-- Setting up visual studio online for project management.
+
+Progress Since Last Meeting:
+-- Completed pages for assignment report.
+-- Decided upon Java version.
+-- Facebook issues resolved.
+-- Doxygen notes read.
+
+TODO:
+-- Mo + David = Final additions and tweaks to assignment before everyone submits.
+-- All = Set up microsoft accounts for using visual studio online.
+       = Submit the assignment by Wednesday 18th 11:00.
+
