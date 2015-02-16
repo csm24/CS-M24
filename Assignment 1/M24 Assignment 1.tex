@@ -305,6 +305,12 @@ In order to perform this role, I should:
 \begin{itemize}
  \item Prepare Unit testing e.g. JUnit\footnote{Testing will not catch every error in the program, because it cannot evaluate every execution path in any but the most trivial programs. The same is true for unit testing. Additionally, unit testing by definition only tests the functionality of the units themselves. Therefore, it will not catch integration errors or broader system-level errors (such as functions performed across multiple units, or non-functional test areas such as performance). Unit testing should be done in conjunction with other software testing activities, as they can only show the presence or absence of particular errors; they cannot prove a complete absence of errors. In order to guarantee correct behavior for every execution path and every possible input, and ensure the absence of errors, other techniques are required, namely the application of formal methods to proving that a software component has no unexpected behavior.
 }
+ \item Prepare Abbot \footnote{A framework for unit functional testing in Java GUIs. More info: \url{http://abbot.sourceforge.net/doc/overview.shtml}} testing for GUIs.
+ 
+ \begin{comment}
+  Abbot is a simple framework for unit and functional testing of Java GUIs. Facilitates generating user actions and examining component state. Supports recording and playback on any Java application.
+ \end{comment}
+ 
  \item Integration testing\footnote{In some books it is called as Component testing.}There are two types of testing:
 \begin{itemize}
 \item Button-up integration testing. \\
@@ -367,9 +373,7 @@ The point of insisting that these be considered in order is that each property s
 %----------------------------------------------------------------------------------------
 \newpage
 \section{Schedule, Format and Quality}
-After searching for suitable document templates, we believe the attached document from the Swiss Federal Institute of Technology, Zurich, provides and excellent template. It is in MicroSoft Word format, so we will reformat into LaTeX, taking the opportunity to omit sections that are not relevant and ensure it fits our needs. This answers the question on format, and contains the necessary guidance on quality management as well. 
-
-\footnote{se.inf.ethz.ch/old/.../Project Plan wo QA, Transition.doc}
+After searching for suitable document templates, we believe the attached document from the Swiss Federal Institute of Technology, Zurich, provides and excellent template. It is in MicroSoft Word format, so we will reformat into LaTeX, taking the opportunity to omit sections that are not relevant and ensure it fits our needs. This answers the question on format, and contains the necessary guidance on quality management as well. \footnote{se.inf.ethz.ch/old/.../Project Plan wo QA, Transition.doc}
 \subsection{Initial Schedule of Work}
 
 When we receive the project requirements on 18/2/15, the initial actions are:
