@@ -1,0 +1,34 @@
+Minutes of Meeting 3: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 23th Feb 2015
+Start: 15:00
+End: 15:30
+
+Next Meeting: 25th Feb 12:00
+
+Topics Discussed:
+—- Assignment part 2 released and discussed. Task - design a Chess program
+—- Open issues and questions - SH to discuss with Dr Mora (arranged Tuesday 24 16:00)
+—- SH to create issues log etc
+—- Ifetayo suggested we all bring initial design ideas on Class structure to Wednesday lecture
+—- SH to set up requirements spec
+
+Progress Since Last Meeting:
+-- Assignment 1 submitted on time
+
+TODO:
+-- All = Set up microsoft accounts for using visual studio online.
+—- SH to set up meeting with Dr Mora, and request extension (done)
+—- Initial Class design ideas by Wednesday
+
+Questions for Dr Mora
+
+What devices do we need to run on - can we exclude IOS & OS X?
+Assuming Java - hence problems with IOS & OS X
+Is a web only solution acceptable?
+Android, do we need to supply APK file?
+Who will sign off the requirements?
+Clarify ‘ Computer, Human, Network.’
+Device to device - same subnet?
+Ports blocked at Swansea?
+
