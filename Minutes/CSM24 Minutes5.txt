@@ -1,0 +1,38 @@
+Minutes of Meeting 5: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 26th Feb 2015
+Start: 13:10
+End: 14:20
+
+Next Meeting: 2nd Mar 12:00
+
+Topics Discussed:
+-- Discussion from Dr.Mora's course work feedback
+—- Course work part 2 Specification and Design Document discussed 
+—- Update on open issues and questions from last meeting
+—- Feedback from Simon on meeting with Dr.Mora
+—- Discussion of individual class diagrams (Identification of the objects)
+—- Best way to go about the development of the project (web maybe?)
+-- Chess engine is to be run local on each instance of the app
+-- Simon has come up with a template for the team's documentation. No user documentation and security requirements, additional sections are to be added as appilicable
+-- Unicode characters for the chess pieces can be used for documentation
+-- Latex is to be used for all documentation purposes
+
+Progress Since Last Meeting:
+-- Ambiguities from the requirement documentation have been clarified
+-- No IOS development is to be done
+
+TODO:
+-- Ifetayo is to design the class diagram and use cases
+—- Simon is to draft the project requirements and design the state chart
+—- Mo is to design the UML, Mock up, logo, convert the teams agreed document template to latex and document the state chart design from Simon
+-- Movelist feature is to be of low priority
+-- Persisting data is to be done however the member handling it decides
+-- Doxygen generation of class diagram using Argo or doxygen is to be investigated by Mo
+
+
+Questions for next meeting
+
+What technology or appraoch is suitable for the project implementation
+Other language possibilities
+
