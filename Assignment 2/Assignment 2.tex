@@ -19,7 +19,8 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc} 
 \usepackage{url} % URL in Footnote  
-\usepackage{cite} % BibLatex
+%\usepackage{cite} % BibLatex
+\usepackage[backend=bibtex]{biblatex}
 \usepackage[table]{xcolor}
 \usepackage{csquotes} %Quotation
 \usepackage[document]{ragged2e} % Justify
@@ -153,7 +154,8 @@ Describe the requirements associated with any communications functions required 
 %-----------------------------------------------------------------------------------------
 \section{System Features}
 
-This section describes the requirements to be delivered in the product. The requirements are derived firstly from the 
+This section describes the requirements to be delivered in the product. The requirements are derived firstly from the Project Assignment  \citation{Assignment2Spec}, and from face to face interviews with Dr Mora, and from assumptions made by the development team. The source of each requirement is stated, with the priority for delivery of the requirement. 
+
 
 \subsection{System Feature 1}
 
@@ -206,5 +208,6 @@ Optionally, include any pertinent analysis models, such as data flow diagrams, c
 Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.
 \end{appendices}
 
+\bibliography{Assignment 2.bib}
 
 \end{document}
