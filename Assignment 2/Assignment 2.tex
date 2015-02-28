@@ -25,6 +25,10 @@
 \usepackage{csquotes} %Quotation
 \usepackage[document]{ragged2e} % Justify
 \bibliography{Assignment 2.bib}
+\usepackage{float}
+\usepackage{courier}
+\usepackage{todonotes}
+
 
 % Margins
 \topmargin=-0.45in
@@ -75,7 +79,7 @@
 \end{titlepage}
 \pagebreak
 \pagenumbering{arabic} %start page number
-\tableofcontents{} 
+\tableofcontents
 \pagebreak
 \justify
 
@@ -84,7 +88,6 @@
 %------------------------------------------------------------------------------------
 %\maketitle
 %\newpage
-%\tableofcontents
 %\newpage
 \renewcommand{\abstractname}{Revision History}
 \begin{abstract}
@@ -92,7 +95,7 @@
   \begin{tabular}{ |  p{3cm} | p{3cm} |  p{5cm} | p{2cm} |}
     \hline
     Name & Date & Reason of changes & Version \\ \hline \hline
-    4 & 5 & 6 & 10 \\ \hline 
+    Simon Hewitt & 28/3/15 & Added Requirements & 0.1 \\ \hline 
     7 & 8 & 9 & 11 \\
     \hline
   \end{tabular}
@@ -107,34 +110,89 @@
 %-----------------------------------------------------------------------------------------
 \section{Introduction}
 \subsection{Purpose}
-Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.
+
+This document describes the creation of an interactive Chess game by the authors as the submission for module \textbf{M24 Software Team Project}, an element of the MSc in Computer Science at Swansea University.
+
+The Chess game requirements are described in the project assignment \cite{Assignment2Spec}, this document formalises those requirements and clarifies them where necessary by derived requirements, or by open issues where necessary. 
+
 \subsection{Document Conventions}
-Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.
+
+Code extracts are shown in \texttt{Courier mono-spaced font}
+
+
 \subsection{Intended Audience and Reading Suggestions}
-Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.
+
+This document is intended for two audiences, the customer commissioning the game application, Dr Ben Mora, and for the developers and testers charged with creating the app. It is necessary to be familiar with \cite{Assignment2Spec} to fully understand and utilise this document. 
+
 \subsection{Product Scope}
-Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
+
+The product, a game application, is intended to be a relatively simple and entry-level chess game that is none the less fully functioning and useable by beginner or expert Chess players. By using an open source Chess engine we expect to be able to provide a challenging game to expert players. By providing a network capability, we can provide the opportunity for two players to play at a remote distance, for instance while both attending different lectures. 
+
 \subsection{References}
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+?? Any ideas here?? Or delete this section?
+\todo{Put something in Reference section}
+
 
 %-----------------------------------------------------------------------------------------
 % Overall Description
 %-----------------------------------------------------------------------------------------
 \section{Overall Description}
 \subsection{Product Perspective}
-Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.
+It should be born in mind that this product is created in a single module undertaken in one semester of our MSc course, so cannot expect to be as comprehensive or as polished as the many free and commercial chess games available. However we hope to produce an attractive game that can be played by beginner through to expert level Chess players.
+
 \subsection{Product Functions}
-Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
+
+The Chess game is started by a human User. However after starting anew game, the user can select to play herself, agains another human player, or against a computer Chess Engine, or against another instance of this app that is available on an IP network. Or she can select for the Chess Engine to play itself or to play a network player (which in turn could be a human or an engine). 
+
+The game app has the expected usual functions of Player profiles including games won and lost, a live Game score, and a game list so the user can review the most recent game. 
+
 \subsection{User Classes and Characteristics}
-Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
+This simple game app has only a single class of User, the game player. There are no administrative functions requiring elevated security. 
+
 \subsection{Operating Environment}
-Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.
+
+The App will be written in Java.
+
+\todo{Include technical environment from Assignment 1, and correct it}
+
+
 \subsection{Design and Implementation Constraints}
+
+\todo{Design manager (whohe?)}
+
 Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).
+
 \subsection{User Documentation}
-List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.
+No external User Documentation will be created. The App \textbf{Help} pages will be sufficiently detailed to enable a new user to play the game. We will not be explaining the rules of Chess, but the game board does not allow illegal moves to be made, so the game can also act as a tutor to new players, to some extent. 
+
 \subsection{Assumptions and Dependencies}
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+
+Known assumptions are listed below in table \ref{ass}
+
+\begin{table}[H]
+\caption{Assumptions Risks Issues and Dependencies}
+\label{table:Ass}
+\begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
+
+\textbf{Number} & \textbf{Text} & \textbf{Type} & \textbf{Priority}\\ \hline
+
+\textbf{ARID-1:}  & 
+The application will be an on-device app coded in Java
+& Assumption & \textit{ High} \\
+
+\textbf{ARID-2:}  & 
+A suitable Chess engine can be found that can be executed in the technical environment
+& Risk & \textit{ High} \\
+
+\textbf{ARID-3:}  & 
+The Portable Game Notation \cite{PGN-94} is suitable for exchanging move data over a network
+& Assumption & \textit{ High} \\
+
+
+\hline
+\end{tabular}
+\end{table}
+
 
 
 %-----------------------------------------------------------------------------------------
@@ -142,13 +200,31 @@ List any assumed factors (as opposed to known facts) that could affect the requi
 %-----------------------------------------------------------------------------------------
 \section{External Interface Requirements}
 \subsection{User Interfaces}
-Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.
+
+The User interface will be a Graphical 2D interface designed for pointer use (Mouse or touch, depending on the device). Game control actions such as 'New Game', 'End Game', may be by a menu interface, by action buttons on screen or some combination of these, this design detail is still to be resolved. 
+
+No special skills will be needed to use the interface, and it will adopt well known modern idioms for software game play.
+
+Within the limitations of our time and the technologies available, we will be unable to add special accessibility provision for people with disabilities, and in particular, reasonable eyesight will be necessary to play the game. 
+
 \subsection{Hardware Interfaces}
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+
+The application requires limited hardware interfaces. A screen with modest GPU capability, a pointer (by mouse or touch screen) and a sound device are required. 
+
+The App offers remote play over a network so a TCP/IP interface  is needed, ideally WiFi for full mobility, but the app will work in local mode if no network is available. 
+
+Persistent store is needed, no design decision has been made yet as to what form this will take, but it is likely to be Java serialization to local store. 
+
 \subsection{Software Interfaces}
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+
+\todo{Software Interfaces - to be done}
+Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint. 
 \subsection{Communications Interfaces}
-Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.
+
+The App can play another similar app on a TCP/IP network segment that can be addressed by a direct IP address - that is, a local network segment but probably not across routers or firewalls.
+
+The App will use Java TCP/IP Sockets to exchange small human-readable packets describing Chess moves and a limited Game protocol.
+
 
 
 %-----------------------------------------------------------------------------------------
@@ -164,8 +240,10 @@ This section describes the requirements to be delivered in the product. The requ
 
 The specification states \textit{"• When someone calls the menu item “New game”, the interface asks for the two types of players. There are three choices for white, and three choices for black obviously."}
 However selecting Network for both players makes no sense, one player must be local to the device, either 'Human' (the User), or Computer, the chess engine on the device.
-If network is selected, we will be playing another device - but is that device using a chess engine or a human player? To resolve these issues, we will split the players into \textbf{Me} and \textbf{Other}, with options for each as in this table:
+If network is selected, we will be playing another device - but is that device using a chess engine or a human player? To resolve these issues, we will split the players into \textbf{Me} and \textbf{Other}, with options for each as in table \ref{table:WBRoles}. 
 
+\begin{table}[H]
+\caption{White and Black player roles}
 \begin{tabular}{|| p{2cm} | p{2cm} | p{11cm} ||}\hline
 
 \textbf{1st player - White} &\textbf{2nd player - Black} & Description\\
@@ -181,49 +259,265 @@ Network & Computer & As above but Network plays White\\
 Network & Network & \textbf{Not valid}, one player must be local to the device \\
 \hline
 \end{tabular}
+\label{table:WBRoles}
+\end{table}
 
-\subsubsection{Functional Requirements}
 
 
-\begin{tabular}{| l | p{10cm}  |  c  | c |} \hline  
+The requirements identified are:
+
+
+\begin{table}[H]
+\caption{Player requirements}
+\label{table:playerReqs}
+\begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
 % BE REALLY carefull with this, it contains pipe symbol | and lower case l (L), make sure you are clear which is which before you change anything
-\textbf{REQ-P1:}  & The application must store at least 8 player profiles.  & Spec & \textit{Priority : High} \\
+\textbf{Number} & \textbf{Requirement} & \textbf{Source} & \textbf{Priority}\\ \hline
+\textbf{REQ-P1:}  & The application must store at least 8 player profiles.  & Spec & \textit{ High} \\
 
-\textbf{REQ-P2:} & The profiles must be persisted without any user interaction and reloaded when the application starts.  & spec & \textit{Priority : High}\\
+\textbf{REQ-P2:} & The profiles must be persisted without any user interaction and reloaded when the application starts.  & spec & \textit{High}\\
 
 \textbf{REQ-P3:} &  Profiles are local and specific to an individual device (i.e. there is no requirement to migrate profiles from one device to another) 
-& Derived & \textit{Priority : High}\\
+& Derived & \textit{Medium}\\
 
 \textbf{REQ-P4:} &  The menu that allows a user to select the type of player must have quick access to player profiles
-& Spec  &  \textit{Priority : Medium}\\
+& Spec  &  \textit{Medium}\\
 
 \textbf{REQ-P5:} 
-&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
-& Spec  &  \textit{Priority : High}\\
+&  To start a game, the user may select from three types of player for White, \textit{Computer, Human, Network}
+& Spec  &  \textit{High}\\
 \textbf{REQ-P6:} 
-&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
-& Spec  &  \textit{Priority : High}\\
+&  To start a game, the user may select from three types of player for Black, \textit{Computer, Human. Network}
+& Spec  &  \textit{High}\\
 \textbf{REQ-P7:} 
-&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
-& Spec  &  \textit{Priority : High}\\
-\textbf{REQ-P8:} 
-&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
-& Spec  &  \textit{Priority : High}\\
+& The roles will be interpreted as in Table \ref{table:WBRoles} & Derived & \textit{High} \\
+\textbf{REQ-P8:}
+& The combination network::network will not be permitted.
+& Derived &\textit{High}\\
+
+\textbf{REQ-P9:} 
+&  When \textit{Computer} is selected for either White or Black, the user will be able to select the level of play of the Chess engine
+& Spec  &  \textit{Low}\\
+
+\textbf{REQ-P10:} 
+&  When \textit{Computer} is selected for either White or Black, the user will be able to select from a list of available Chess engines
+& Spec  &  \textit{V Low}\\
+
+\textbf{REQ-P11:} 
+&  The number of wins and losses will be stored for each player profile
+& Spec  &  \textit{High}\\
 
 \hline
 \end{tabular}
+\end{table}
 
-\subsection{Player Profiles}
+\subsection{Game}
 
-This section describes the requirements relating to the user profiles.
+This section describes the requirements for playing the game. First a few notes on Chess notation. 
+The columns of the board are described by letters 'a' - 'h' and referred as the file, while rows are described by numbers 1..8 and described as the rank. White is always at the bottom of the board, so all White pieces start in ranks 1 and 2. 
+Standard notation is designed to be very abbreviated and rapid to write down for experienced players and commentators. The standard notation only records the type of piece and the square where it completes its move, but for Pawns, no piece type is used at all. A line of notation describes a White / Black move pair. Thus:
+\par
+4a 6b
+\par
+describes White moving a pawn two squares followed by Black moving a pawn 1 square. , while 
+\par
+Na3 Bh6
+\par
+describes White's Knight and Black's Bishop moving. Where two pieces could move to the same square, the starting Rank is specified, unless this is also ambiguous, in which case the starting File is specified. The notation is brief and concise but hard to calculate and quite hard to understand for a non-player. Therefore we have made a decision that the game will use Portable Game Notation \cite{PGN-94} \cite{PGN-Wiki} and this will be displayed on the play list. As it was developed for computer use, and is widely used in chess engines, it simplifies the coding task without reducing human readability to an unacceptable degree. 
 
-\subsubsection{Requirements}
-
-REQ2-1: 
 
 
-\subsubsection{Stimulus/Response Sequences}
-List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.
+\begin{table}[H]
+\caption{Game requirements}
+\label{table:gameReqs}
+\begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
+% BE REALLY carefull with this, it contains pipe symbol | and lower case l (L), make sure you are clear which is which before you change anything
+\textbf{Number} & \textbf{Requirement} & \textbf{Source} & \textbf{Priority}\\ \hline
+\textbf{REQ-G1:}  & The Chess game must have a 2D board  & Spec & \textit{ High} \\
+
+\textbf{REQ-G2:} 
+&  The game must have a move list.
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G3:} 
+&  The Move list will show on a separate page and show all moves in the current game
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G4:} 
+& The moves will be recorded and displayed in PGN \cite{PGN-94}
+& Spec  &  \textit{Medium}\\
+
+\textbf{REQ-G5:} 
+& The move list can be displayed by a menu selection and / or an icon or button on the main chess page (to be decided at build time), but must be readily apparent to the user
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G6:} 
+& The move list will enable scrolling if necessary
+& Spec  &  \textit{Low}\\
+
+\textbf{REQ-G7:} 
+& The Move list can be exported in plain text format
+& Spec  &  \textit{Low}\\
+
+\textbf{REQ-G8:} 
+& The game screen will show the names of the players eg local player profile, and as a minimum thge IP address of a Network player, or the name of the chess engine
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G9:} 
+& The game screen will show a position score, based on the simple piece values shown in Figure~\ref{fig:chessPieces} . No calculations will be made for any positional advantage, simply for the points of the pieces in play for each side.
+& Spec  &  \textit{Medium}\\
+
+\textbf{REQ-G10:} 
+& For computer-computer games, the user will be asked to enter the number of games to be played.
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G11:} 
+& For computer-computer games, tthe play changes sides each game.
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G12:} 
+& For computer-computer games, the score of games won and lost will be displayed and updated at the end of each game
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G13:} 
+& For games involving one or two computers, the play will be delayed to a defined time period (e.g. 5 seconds). This will be a system-wide constant value, but not changeable by the user (unless time permits to enable this feature). 
+& Added  &  \textit{Medium}\\
+
+\textbf{REQ-G14:} 
+&  White always starts the game
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G15:} 
+& The user can select one of her pieces by pointer (mouse or touch, depending on the device). 
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G16:} 
+& Once selected, the game board will highlight all squares to which the piece is permitted to move
+& Spec  &  \textit{Medium}\\
+
+\textbf{REQ-G17:} 
+& OR if there are no legal moves for the piece, the piece selection will flash or otherwise indicate an invalid selection, and the piece will not be highlighted
+& Spec  &  \textit{Low}\\
+
+\textbf{REQ-G18:} 
+&  If the player has been checked, only moves that will uncheck the player are permitted (NB there must be at least one such move - otherwise it is CheckMate!)
+& Spec  &  \textit{Low}\\
+
+\textbf{REQ-G19:} 
+&  Each Human player shall have a button and/or menu option to resign.
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G20:} 
+&  The game will be able to receive a 'Resign' from a chess engine
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-G21:} 
+&  The game is complete when either player resigns or either played is check-mated.
+& Spec  &  \textit{High}\\
+
+
+\textbf{REQ-G22:} 
+&  After completion the game remains displayed until the user selects 'New Game' via the game interface
+& Spec  &  \textit{High}\\
+
+
+
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+	\includegraphics{"resources/Chess piece relative value.png}
+  \caption{Chess piece values  \label{fig:chessPieces}}
+\end{figure}
+
+\subsection{Network Play}
+
+The specification demands that the game can play with other games over a network, this section describes the requirements for this. The specification does not give much detail on how this is to be achieved, so this section makes several assumptions that must be agreed with the customer.
+
+\begin{table}[H]
+\caption{Network  requirements}
+\label{table:networkReqs}
+\begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
+% BE REALLY carefull with this, it contains pipe symbol | and lower case l (L), make sure you are clear which is which before you change anything
+\textbf{Number} & \textbf{Requirement} & \textbf{Source} & \textbf{Priority}\\ \hline
+
+\textbf{REQ-Net1:}  & The game must allow finding a network player from a given IP& Spec & \textit{ High} \\
+
+\textbf{REQ-Net2:} &
+The application opens IP Port 4567 when starting and closes it when it exits  (for network play)
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-Net3:} &
+The network play only needs to work on the same subnet, no IP routing across routers or firewalls is needed. 
+& Interview  &  \textit{High}\\
+
+\textbf{REQ-Net4:} &  
+Active mode: The game starting a network game is said to be in Active network mode
+& Derived  &  \textit{High}\\
+
+\textbf{REQ-Net5:} &  
+Active mode: If the user selects Network Game at game start, the application will ask for an IP address of another game.
+& Spec  &  \textit{High}\\
+
+\textbf{REQ-Net6:} &  
+Active mode: Once an IP address is entered, the game will attempt to contact and connect to a game at that address.
+& Derived  &  \textit{High}\\
+
+\textbf{REQ-Net7:} &  
+Only IP V4 will be used, no IP V6 support.
+& Derived  &  \textit{Medium}\\
+
+\textbf{REQ-Net8:} &  
+Active mode: IP addresses will be entered the normal format of xxx:xxxx:xxxx:xxxx where each xxxx represents a 8 bit value in decimal notation, for example 192.168.135.33
+& Derived  &  \textit{Medium}\\
+
+\textbf{REQ-Net9:} &  
+Active mode: If no response is received from the given IP address in a defined time, an error is displayed and the game state reverts to game-not-started. & Derived  &  \textit{High}\\
+
+\textbf{REQ-Net10:} &  
+Active mode: The time-out will be a system global constant in the first release, and is not user configurable
+& Derived  &  \textit{Low}\\
+
+\textbf{REQ-Net11:} &  
+Passive Mode: The game waiting to receive a network play partner id said to be in Passive mode.
+& Derived  &  \textit{High}\\
+
+
+\textbf{REQ-Net12:} &  
+Passive Mode: At game start, the user can select Network game, Passive mode
+& Derived  &  \textit{High}\\
+
+
+\textbf{REQ-Net13:} &  
+Passive Mode: The game will wait indefinitely for an incoming connection request on port 4567.
+& Derived  &  \textit{High}\\
+
+
+\textbf{REQ-Net14:} &  
+Passive Mode: The user can cancel passive mode and return to the game-not-started state.
+& Derived  &  \textit{High}\\
+
+
+\textbf{REQ-Net15:} &  
+Passive Mode: Once a connection is opened, the Active game sends player details, and the Passive game also responds with player details.
+& Derived  &  \textit{High}\\
+
+
+\textbf{REQ-Net16:} &  
+After that, moves are exchanged until the game is complete or either played selects 'Stop Game'.
+ & Derived  &  \textit{High}\\
+
+
+
+
+
+
+
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -231,16 +525,101 @@ List the sequences of user actions and system responses that stimulate the behav
 % Other Non-functional Requirements
 %-----------------------------------------------------------------------------------------
 \section{Other Non-functional Requirements}
+
+\subsection{Technical Environment}
+This section describes the direct technical environment requirements derived from the specification.
+
+
+
+\begin{table}[H]
+\caption{Non Functional  requirements}
+\label{table:NFReqs}
+\begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
+% BE REALLY carefull with this, it contains pipe symbol | and lower case l (L), make sure you are clear which is which before you change anything
+\textbf{Number} & \textbf{Requirement} & \textbf{Source} & \textbf{Priority}\\ \hline
+\textbf{REQ-NF1:}  & The application must be runnable on Phones, Tablets and Computers & Spec & \textit{ High} \\
+
+\textbf{REQ-NF2:} 
+&  The game does not have to run on IOS devices
+& Interview  &  \textit{High}\\
+
+\textbf{REQ-NF3:} 
+&  The game will run on Android tablets and phones
+& Derived  &  \textit{High}\\
+
+\textbf{REQ-NF4:} 
+&  The game will run on Windows and OS X PCs provided they can host the appropriate JVM
+& Interview  &  \textit{High}\\
+
+
+\textbf{REQ-NF5:} 
+& It will be possible to use an alternative Chess Engine. It may be that a Java class has to be subclassed and modified to make this possible. 
+& Interview  &  \textit{High}\\
+
+\hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Performance Requirements}
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+
+Many aspects of the game performance are beyond the control of the software team, such as:
+\begin{itemize}
+  \item The performance of the device, from Phones to PCs
+  \item The performance of the network
+  \item The performance of the Chess engine
+\end{itemize}
+
+So we will give only limited assurances on performance. 
+
+\begin{table}[H]
+\caption{Performance  requirements}
+\label{table:PerfReqs}
+\begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
+
+\textbf{Number} & \textbf{Requirement} & \textbf{Source} & \textbf{Priority}\\ \hline
+
+\textbf{REQ-NF20:}  & 
+The application will start and load its persistent data within 20 seconds
+& Spec & \textit{ High} \\
+
+\textbf{REQ-NF21:} 
+&  From selecting a piece, legal moves will be displayed within 5 seconds
+& Interview  &  \textit{High}\\
+
+\textbf{REQ-NF22:} 
+&  From selecting a legal move, the other player move can commence within 5 seconds.
+& Derived  &  \textit{High}\\
+
+\hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Safety Requirements}
-Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product’s design or use. Define any safety certifications that must be satisfied.
+
+We can foresee no direct safety concerns in the application. Clearly as with all other computer games, they should not be used while driving or operating machinery. 
+
 \subsection{Security Requirements}
-Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
+
+Within the limitations of a 10 unit module, particularly when we have only three team member for a project designed for five, we have decided that we will not implement any security requirements, and in particular:
+
+\begin{itemize}
+\item No user password will be required to play the game
+\item Game moves will be sent over the network in plaintext, including player names, profiles and scores
+\item No action will be undertaken to verify the identity of a remote network player
+\item Persistent player data will be stored in plaintext
+\end{itemize}
+
+We believe that as the game does not involve any payment and requires no personal detail, this is acceptable. Furthermore, network play is limited by the span of a local area network so it is unlikely that a player will really be able to play with another 'anonymous' player but will be someone they know or how is in sight.
+
+If the game were extended to a Internet enabled game, these limitations would not be acceptable. 
+
 \subsection{Software Quality Attributes}
+
 Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.
-\subsection{Business Rules}
-List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.
+
+
 
 
 %-----------------------------------------------------------------------------------------
@@ -249,6 +628,7 @@ List any operating principles about the product, such as which individuals or ro
 
 \section{Other Requirements}
 Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.
+
 
 %-----------------------------------------------------------------------------------------
 % Appendices
@@ -262,6 +642,7 @@ Optionally, include any pertinent analysis models, such as data flow diagrams, c
 Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.
 \end{appendices}
 
+\printbibliography[title=references]
 
 
 \end{document}
