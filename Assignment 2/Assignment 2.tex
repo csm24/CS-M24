@@ -24,7 +24,7 @@
 \usepackage[table]{xcolor}
 \usepackage{csquotes} %Quotation
 \usepackage[document]{ragged2e} % Justify
-
+\bibliography{Assignment 2.bib}
 
 % Margins
 \topmargin=-0.45in
@@ -33,6 +33,7 @@
 \textwidth=6.5in
 \textheight=9.0in
 \headsep=0.25in 
+
 
 \linespread{1.1} % Line spacing
 
@@ -99,6 +100,7 @@
 \end{abstract}
 
 
+\setlength{\parindent}{0cm}
 
 %-----------------------------------------------------------------------------------------
 % Introduction
@@ -151,27 +153,79 @@ Describe the requirements associated with any communications functions required 
 
 %-----------------------------------------------------------------------------------------
 % System Features
+%              				Simon Hewitt   >>>>>>>>>>>>>>>>>>>>
 %-----------------------------------------------------------------------------------------
 \section{System Features}
 
 This section describes the requirements to be delivered in the product. The requirements are derived firstly from the Project Assignment  \citation{Assignment2Spec}, and from face to face interviews with Dr Mora, and from assumptions made by the development team. The source of each requirement is stated, with the priority for delivery of the requirement. 
 
 
-\subsection{System Feature 1}
+\subsection{Player Profiles}
 
-Don’t really say “System Feature 1.” State the feature name in just a few words.
-\subsubsection{Description and Priority}
-Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).
+The specification states \textit{"• When someone calls the menu item “New game”, the interface asks for the two types of players. There are three choices for white, and three choices for black obviously."}
+However selecting Network for both players makes no sense, one player must be local to the device, either 'Human' (the User), or Computer, the chess engine on the device.
+If network is selected, we will be playing another device - but is that device using a chess engine or a human player? To resolve these issues, we will split the players into \textbf{Me} and \textbf{Other}, with options for each as in this table:
+
+\begin{tabular}{|| p{2cm} | p{2cm} | p{11cm} ||}\hline
+
+\textbf{1st player - White} &\textbf{2nd player - Black} & Description\\
+\hline
+Human & Human & Two player (human) game on one device - take turns to play \\
+Human & Computer & Human (the User) plays Chess engine on the local chess engine\\
+Computer & Human & User plays Engine but Human plays as Black (2nd)\\
+Computer & Computer & Chess engine plays itself, on local device (low priority)\\
+Human& Network & Human users plays another device over network. It is not known what the remote device is playing, Human or Engine\\
+Network & Human & As above but Network plays White\\
+Computer & Network & Local chess engine plays the network player\\
+Network & Computer & As above but Network plays White\\
+Network & Network & \textbf{Not valid}, one player must be local to the device \\
+\hline
+\end{tabular}
+
+\subsubsection{Functional Requirements}
+
+
+\begin{tabular}{| l | p{10cm}  |  c  | c |} \hline  
+% BE REALLY carefull with this, it contains pipe symbol | and lower case l (L), make sure you are clear which is which before you change anything
+\textbf{REQ-P1:}  & The application must store at least 8 player profiles.  & Spec & \textit{Priority : High} \\
+
+\textbf{REQ-P2:} & The profiles must be persisted without any user interaction and reloaded when the application starts.  & spec & \textit{Priority : High}\\
+
+\textbf{REQ-P3:} &  Profiles are local and specific to an individual device (i.e. there is no requirement to migrate profiles from one device to another) 
+& Derived & \textit{Priority : High}\\
+
+\textbf{REQ-P4:} &  The menu that allows a user to select the type of player must have quick access to player profiles
+& Spec  &  \textit{Priority : Medium}\\
+
+\textbf{REQ-P5:} 
+&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
+& Spec  &  \textit{Priority : High}\\
+\textbf{REQ-P6:} 
+&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
+& Spec  &  \textit{Priority : High}\\
+\textbf{REQ-P7:} 
+&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
+& Spec  &  \textit{Priority : High}\\
+\textbf{REQ-P8:} 
+&  To start a game, the user may select from three types of player, \textit{Computer, Human. Network}
+& Spec  &  \textit{Priority : High}\\
+
+\hline
+\end{tabular}
+
+\subsection{Player Profiles}
+
+This section describes the requirements relating to the user profiles.
+
+\subsubsection{Requirements}
+
+REQ2-1: 
+
+
 \subsubsection{Stimulus/Response Sequences}
 List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.
-\subsubsection{Functional Requirements}
-Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not yet available.
 
-Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.
 
-REQ-1:
-REQ-2:
-\subsection{System Feature 2 (and so on)}
 
 %-----------------------------------------------------------------------------------------
 % Other Non-functional Requirements
@@ -208,6 +262,6 @@ Optionally, include any pertinent analysis models, such as data flow diagrams, c
 Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.
 \end{appendices}
 
-\bibliography{Assignment 2.bib}
+
 
 \end{document}
