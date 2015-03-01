@@ -217,8 +217,15 @@ Persistent store is needed, no design decision has been made yet as to what form
 
 \subsection{Software Interfaces}
 
-\todo{Software Interfaces - to be done}
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint. 
+\todo{Software Interfaces }
+
+The game uses a third party Chess Engine. Initial plans are to use Stock Fish \cite{stockfish}
+as it is widely regarded as a powerful Chess engine, it is open source, and the entire source is available on GitHum \cite{stockfish-github}. Stockfish is coded in C++, so the first challenge is to incorporate a C++ compiled module into Java bytecode, resources are available online to help with this, such as \cite{javaStockfish}. 
+
+An alternative would be to use a Java chess engine, which would simplify development, resources are available from : \cite{javaChess}.
+
+Currently we expect to use the UCI chess interface, see reference: \cite{UCIInterface}. This is used by Stockfish and is a significant standard for chess engines. 
+
 \subsection{Communications Interfaces}
 
 The App can play another similar app on a TCP/IP network segment that can be addressed by a direct IP address - that is, a local network segment but probably not across routers or firewalls.
