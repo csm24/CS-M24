@@ -115,7 +115,7 @@
 
 This document describes the creation of an interactive Chess game by the authors as the submission for module \textbf{M24 Software Team Project}, an element of the MSc in Computer Science at Swansea University.
 
-The Chess game requirements are described in the project assignment \cite{Assignment2Spec}, this document formalises those requirements and clarifies them where necessary by derived requirements, or by open issues where necessary. 
+The Chess game requirements are described in the project assignment \cite{Assignment2Spec}, this document formalises those requirements and clarifies them with derived requirements or by open issues. 
 
 \subsection{Document Conventions}
 
@@ -143,7 +143,7 @@ It should be born in mind that this product is created in a single module undert
 
 \subsection{Product Functions}
 
-The Chess game is started by a human User. However after starting anew game, the user can select to play herself, agains another human player, or against a computer Chess Engine, or against another instance of this app that is available on an IP network. Or she can select for the Chess Engine to play itself or to play a network player (which in turn could be a human or an engine). 
+The Chess game is started by a human User. When starting a new game, the user can select to play herself, against another human player, or against a computer Chess Engine, or against another instance of this app that is available on an IP network. Or she can select for the Chess Engine to play itself or to play a network player (which in turn could be a human or an engine). 
 
 The game app has the expected usual functions of Player profiles including games won and lost, a live Game score, and a game list so the user can review the most recent game. 
 
@@ -165,10 +165,9 @@ The team members use different desktop OS including Linux, OS X and Windows, so 
 \textbf{Component} & \textbf{Selection} & \textbf{Justification} \\
 \hline
 
- Language & Java & V8\\
+ Language & Java V8 JVM &  The standard, current Java version from Sun  \\
 IDE & Eclipse or NetBeans & Individual choice\\
 Desktop & OS X, Windows, Linux & Individual Choice\\
-JVM & Java version 8 & Awaiting input\\
 Source and version control & GitHub & De facto standard, free, open source\\
 Desktop source and version control & none specified, default is Git command line or GitHub 2 & Individual choice. GitHub2 is also open source\\
 Documentation & LaTeX & works well with GIT and is an academic standard\\
@@ -183,7 +182,7 @@ Time Management & TFS and Gnatt chart & Gantt chart, WBS\\
 \end{tabular}
 \\
 \\
-The user desktop OS is of course an attribute of the devices (laptop, PC) used. Apart from that, each of these tool sis open source with an existing track record of being long lived, widely used and with a healthy development community actively supporting them. In each case they are an accepted de-facto choice for their purpose.
+The user desktop OS is of course an attribute of the devices (laptop, PC) used. Apart from that, each of these tools is open source with an existing track record of being long lived, widely used and with a healthy development community actively supporting them. In each case they are an accepted de-facto choice for their purpose.
 
 \clearpage
 \pagebreak
@@ -199,11 +198,14 @@ No external User Documentation will be created. The App \textbf{Help} pages will
 
 \subsection{Assumptions and Dependencies}
 
-Known assumptions are listed below in table \ref{ass}
+Known assumptions are listed below in table \ref{table:ast} 
 
-\begin{table}[H]
-\caption{Assumptions Risks Issues and Dependencies}
-\label{table:Ass}
+
+
+\begin{table}[h]
+\caption{Assumptions Risks Issues and Dependencies \label{table:ast}}
+
+
 \begin{tabular}{|| l | p{10.5cm}  |  c  | c ||} \hline  
 
 \textbf{Number} & \textbf{Text} & \textbf{Type} & \textbf{Priority}\\ \hline
@@ -217,13 +219,14 @@ A suitable Chess engine can be found that can be executed in the technical envir
 & Risk & \textit{ High} \\
 
 \textbf{ARID-3:}  & 
-The Portable Game Notation \cite{PGN-94} is suitable for exchanging move data over a network
+The Portable Game Notation \cite{PGN-94} or UIC \cite{UCIInterface} is suitable for exchanging move data over a network
 & Assumption & \textit{ High} \\
-
 
 \hline
 \end{tabular}
+
 \end{table}
+
 
 
 
@@ -233,7 +236,7 @@ The Portable Game Notation \cite{PGN-94} is suitable for exchanging move data ov
 \section{External Interface Requirements}
 \subsection{User Interfaces}
 
-The User interface will be a Graphical 2D interface designed for pointer use (Mouse or touch, depending on the device). Game control actions such as 'New Game', 'End Game', may be by a menu interface, by action buttons on screen or some combination of these, this design detail is still to be resolved. 
+The User interface will be a Graphical 2D interface designed for pointer use (mouse or touch, depending on the device). Game control actions such as 'New Game', 'End Game', may be by a menu interface, by action buttons on screen or some combination of these, this design detail is still to be resolved. 
 
 No special skills will be needed to use the interface, and it will adopt well known modern idioms for software game play.
 
@@ -262,7 +265,7 @@ Currently we expect to use the UCI chess interface, see reference: \cite{UCIInte
 
 The App can play another similar app on a TCP/IP network segment that can be addressed by a direct IP address - that is, a local network segment but probably not across routers or firewalls.
 
-The App will use Java TCP/IP Sockets to exchange small human-readable packets describing Chess moves and a limited Game protocol.
+The App will use Java TCP/IP Sockets to exchange small human-readable packets describing Chess moves and a limited Game protocol. Chess moves will be described using PNG or UIC, see Appendix \ref{TBDList}. 
 
 
 
@@ -279,10 +282,11 @@ This section describes the requirements to be delivered in the product. The requ
 
 The specification states \textit{"• When someone calls the menu item “New game”, the interface asks for the two types of players. There are three choices for white, and three choices for black obviously."}
 However selecting Network for both players makes no sense, one player must be local to the device, either 'Human' (the User), or Computer, the chess engine on the device.
-If network is selected, we will be playing another device - but is that device using a chess engine or a human player? To resolve these issues, we will split the players into \textbf{Me} and \textbf{Other}, with options for each as in table \ref{table:WBRoles}. 
+If network is selected, we will be playing another device - but is that device using a chess engine or a human player? To resolve these issues, we will split the players into \textbf{1st player - White} and \textbf{2nd player - Black}, with options for each as in table \ref{table:WBRoles}. 
 
 \begin{table}[H]
 \caption{White and Black player roles}
+\label{table:WBRoles}
 \begin{tabular}{|| p{2cm} | p{2cm} | p{11cm} ||}\hline
 
 \textbf{1st player - White} &\textbf{2nd player - Black} & Description\\
@@ -290,7 +294,7 @@ If network is selected, we will be playing another device - but is that device u
 Human & Human & Two player (human) game on one device - take turns to play \\
 Human & Computer & Human (the User) plays Chess engine on the local chess engine\\
 Computer & Human & User plays Engine but Human plays as Black (2nd)\\
-Computer & Computer & Chess engine plays itself, on local device (low priority)\\
+Computer & Computer & Chess engine plays itself, on local device (low priority, this may be technically challenging)\\
 Human& Network & Human users plays another device over network. It is not known what the remote device is playing, Human or Engine\\
 Network & Human & As above but Network plays White\\
 Computer & Network & Local chess engine plays the network player\\
@@ -298,7 +302,6 @@ Network & Computer & As above but Network plays White\\
 Network & Network & \textbf{Not valid}, one player must be local to the device \\
 \hline
 \end{tabular}
-\label{table:WBRoles}
 \end{table}
 
 
@@ -358,11 +361,13 @@ Standard notation is designed to be very abbreviated and rapid to write down for
 \par
 4a 6b
 \par
-describes White moving a pawn two squares followed by Black moving a pawn 1 square. , while 
+describes White moving a pawn two squares followed by Black moving a pawn 1 square , while 
 \par
 Na3 Bh6
 \par
-describes White's Knight and Black's Bishop moving. Where two pieces could move to the same square, the starting Rank is specified, unless this is also ambiguous, in which case the starting File is specified. The notation is brief and concise but hard to calculate and quite hard to understand for a non-player. Therefore we have made a decision that the game will use Portable Game Notation \cite{PGN-94} \cite{PGN-Wiki} and this will be displayed on the play list. As it was developed for computer use, and is widely used in chess engines, it simplifies the coding task without reducing human readability to an unacceptable degree. 
+describes White's Knight and Black's Bishop moving. Note that the starting square is not described at all, the reader must work this out from the state of the game board before the move is made. \\
+\\
+Where two pieces could move to the same square, the starting Rank is specified, unless this is also ambiguous, in which case the starting File is specified. The notation is brief and concise but hard to calculate and quite hard to understand for a non-player. Therefore we have made a decision that the game will use Portable Game Notation \cite{PGN-94} \cite{PGN-Wiki} or UIC \cite{UCIInterface} and this will be displayed on the play list. As it was developed for computer use, and is widely used in chess engines, it simplifies the coding task without reducing human readability to an unacceptable degree. 
 
 
 
@@ -383,7 +388,7 @@ describes White's Knight and Black's Bishop moving. Where two pieces could move 
 & Spec  &  \textit{High}\\
 
 \textbf{REQ-G4:} 
-& The moves will be recorded and displayed in PGN \cite{PGN-94}
+& The moves will be recorded and displayed in PGN \cite{PGN-94} or UIC \cite{UCIInterface}.
 & Spec  &  \textit{Medium}\\
 
 \textbf{REQ-G5:} 
@@ -411,7 +416,7 @@ describes White's Knight and Black's Bishop moving. Where two pieces could move 
 & Spec  &  \textit{High}\\
 
 \textbf{REQ-G11:} 
-& For computer-computer games, tthe play changes sides each game.
+& For computer-computer games, the play changes sides each game.
 & Spec  &  \textit{High}\\
 
 \textbf{REQ-G12:} 
@@ -458,6 +463,11 @@ describes White's Knight and Black's Bishop moving. Where two pieces could move 
 \textbf{REQ-G22:} 
 &  After completion the game remains displayed until the user selects 'New Game' via the game interface
 & Spec  &  \textit{High}\\
+
+
+\textbf{REQ-G23:} &
+The game will offer teh user a Help option, by button or menu or both. The Help display will be multi-page and provide the user with sufficient guidance that no separate user documentation is needed. 
+& Derived  &  \textit{Medium}\\
 
 
 
@@ -549,15 +559,13 @@ After that, moves are exchanged until the game is complete or either played sele
  & Derived  &  \textit{High}\\
 
 
-
-
-
-
-
 \hline
 \end{tabular}
 \end{table}
 
+\subsection{User Interface }
+
+\todo{Mohamed Khaliqi - add wireframes here}
 
 
 %-----------------------------------------------------------------------------------------
@@ -707,6 +715,26 @@ Define any other requirements not covered elsewhere in the SRS. This might inclu
   description={Universal Chess Interface, is an open communication protocol that enables a chess program's engine to communicate with its user interface},
 }
 
+\newglossaryentry{TCP/IP}
+{
+  name= TCP/IP,
+  description={Transmission Control Prototcol / Internet Protocol, the standard protocol of the Internet},
+}
+
+\newglossaryentry{IOP}
+{
+  name=IP,
+  description={See TCP/IP},
+}
+
+
+\newglossaryentry{PNG}
+{
+  name=PNG,
+  description={Portable Game Notation, see references},
+}
+
+
 
 
 \printglossaries
@@ -714,12 +742,17 @@ Define any other requirements not covered elsewhere in the SRS. This might inclu
 
 
 \section{Analysis Models}
+\todo {Ifetayo - add Use Case models here???}
+
 Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.
-\section{To Be Determined List}
-Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.
-\end{appendices}
+\section{To Be Determined List \label{TBDList}}
+\begin{enumerate}
+  \item Use UIC or PNG for exchanging Chess move data?
+\end{enumerate}
+
+\section{References}
 
 \printbibliography[title=references]
 
-
+\end{appendices}
 \end{document}
