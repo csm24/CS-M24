@@ -28,7 +28,9 @@
 \usepackage{float}
 \usepackage{courier}
 \usepackage{todonotes}
-
+\usepackage{hyperref}
+\usepackage{glossaries}
+\makeglossaries
 
 % Margins
 \topmargin=-0.45in
@@ -70,7 +72,7 @@
   \textit{Mohamad \textsc{Khaleqi}, 808956} \\
   \textit{Ifetayo \textsc{Agunbiade}, } \\
  \textit{Simon \textsc{Hewitt}, 806068} \\
-  \hfill Customer/ Teacher / Marker \textit{Dr. Ben \textsc{Mora}}
+  \hfill Customer/ Lecturer / Marker \textit{Dr. Ben \textsc{Mora}}
 \end{flushleft}
 
 \vfill
@@ -129,8 +131,7 @@ This document is intended for two audiences, the customer commissioning the game
 The product, a game application, is intended to be a relatively simple and entry-level chess game that is none the less fully functioning and useable by beginner or expert Chess players. By using an open source Chess engine we expect to be able to provide a challenging game to expert players. By providing a network capability, we can provide the opportunity for two players to play at a remote distance, for instance while both attending different lectures. 
 
 \subsection{References}
-?? Any ideas here?? Or delete this section?
-\todo{Put something in Reference section}
+References are listed at the end of the document
 
 
 %-----------------------------------------------------------------------------------------
@@ -151,10 +152,41 @@ This simple game app has only a single class of User, the game player. There are
 
 \subsection{Operating Environment}
 
-The App will be written in Java.
 
-\todo{Include technical environment from Assignment 1, and correct it}
+\section{Environment}
 
+
+The team members use different desktop OS including Linux, OS X and Windows, so tools must support each of these. The software development tools will be:    \\
+
+\setlength\extrarowheight{5pt}
+\begin{tabular}{ || p{35mm}|p{40mm}|p{85mm} ||}
+
+\hline
+\textbf{Component} & \textbf{Selection} & \textbf{Justification} \\
+\hline
+
+ Language & Java & V8\\
+IDE & Eclipse or NetBeans & Individual choice\\
+Desktop & OS X, Windows, Linux & Individual Choice\\
+JVM & Java version 8 & Awaiting input\\
+Source and version control & GitHub & De facto standard, free, open source\\
+Desktop source and version control & none specified, default is Git command line or GitHub 2 & Individual choice. GitHub2 is also open source\\
+Documentation & LaTeX & works well with GIT and is an academic standard\\
+Code documentation  &  Doxygen & An alternative to JavaDocs, a general de facto standard. Free and open source.  \\
+Informal Collaboration & Facebook & De facto standard. Free\\
+Testing & JUnit & The most widely used Java testing framework, simple to adopt. Free and open source. \\
+GUI Testing & Abbot & Eclipse plugin to handle testing which JUnit cannot\\
+Code Quality & CodePro Analytix and PMB & Eclipse plugins which aid coding quality\\
+Test runner & To be decided & Nightly build and test sequence is desirable\\
+Time Management & TFS and Gnatt chart & Gantt chart, WBS\\
+ \hline
+\end{tabular}
+\\
+\\
+The user desktop OS is of course an attribute of the devices (laptop, PC) used. Apart from that, each of these tool sis open source with an existing track record of being long lived, widely used and with a healthy development community actively supporting them. In each case they are an accepted de-facto choice for their purpose.
+
+\clearpage
+\pagebreak
 
 \subsection{Design and Implementation Constraints}
 
@@ -642,7 +674,45 @@ Define any other requirements not covered elsewhere in the SRS. This might inclu
 %-----------------------------------------------------------------------------------------
 \begin{appendices}
 \section{Glossary}
-Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.
+
+\newglossaryentry{Linux}
+{
+  name=Linux,
+  description={is a generic term referring to the family of Unix-like
+               computer operating systems that use the Linux kernel},
+  plural=Linuces
+}
+
+\newglossaryentry{Windows}
+{
+  name=Windows, 
+  description={is a proprietary OS  from Microsoft\textregistered},
+}
+
+\newglossaryentry{OS X}
+{
+  name=OS X,
+  description={The proprietary OS from Apple\textregistered{} used on Imacs\textregistered{}  and MacBooks\textregistered. Based on  BSD Unix.},
+}
+
+\newglossaryentry{OS}
+{
+  name=OS,
+  description={Operating System, the software that makes a PC or device work.},
+}
+
+\newglossaryentry{UCI}
+{
+  name=UCI,
+  description={Universal Chess Interface, is an open communication protocol that enables a chess program's engine to communicate with its user interface},
+}
+
+
+
+\printglossaries
+\glsaddall
+
+
 \section{Analysis Models}
 Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.
 \section{To Be Determined List}
