@@ -1,0 +1,29 @@
+Minutes of Meeting 5: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 2nd March 2015
+Start: 13:00
+End: 14:00
+
+Next Meeting: 9th Mar 15:00
+
+Topics Discussed:
+
+—- Ifetayo’s class diagram discussed at length. SH & MK to read and comment
+—- Wire Frame interface layout - Mo to produce soon.
+—- Requirements - complete, to be reviewed.
+
+
+Progress Since Last Meeting:
+—- latex software development spec complete and partly populated
+—- Class diagram 1st draft complete
+
+TODO:
+-- Ifetayo is to complete design the class diagram and use cases
+—- Simon is to design the state chart
+—- Mo is to design the UML, Mock up, logo, 
+-- Persisting data is to be done however the member handling it decides
+-- Doxygen generation of class diagram using Argo or Doxygen is to be investigated by Mo
+
+
+
+
