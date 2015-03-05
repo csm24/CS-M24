@@ -21,7 +21,6 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{url} % URL in Footnote  
 \usepackage{cite} % BibLatex
-\usepackage{babel,blindtext} %produce some bloody text
 
 \usepackage[table]{xcolor}
 \usepackage{csquotes} %Quotation
@@ -490,7 +489,7 @@ The game will offer teh user a Help option, by button or menu or both. The Help 
 
 \begin{figure}
   \centering
-	\includegraphics{Chess_piece_relative_value.png}
+	\includegraphics{"resources/Chess piece relative value.png}
   \caption{Chess piece values  \label{fig:chessPieces}}
 \end{figure}
 
@@ -583,47 +582,30 @@ After that, moves are exchanged until the game is complete or either played sele
 
 In this Section, A demonstration of the software will be shown as below. In order to have Mock up, we used JAVA and JFC and Swing GUI\footnote{The hard code of this demo is available if it is needed.}. According to Walrath, Kathy \footnote{The same article is also available in Java JFC and Swing tutorial in Oracle website : \url{http://docs.oracle.com/javase/tutorial/uiswing/start/about.html}} ``JFC is short for Java Foundation Classes, which encompass a group of features for building graphical user interfaces (GUIs) and adding rich graphics functionality and interactivity to Java applications. It is defined as containing the features shown in the table below.'' and Swing ``Includes everything from buttons to split panes to tables. Many components are capable of sorting, printing, and drag and drop, to name a few of the supported features. '' \cite{walrath2004jfc} \\
 
-\begin{figure}[h]
-  \centering
-	\includegraphics[width=\textwidth]{WholeApp.png}
-  \caption{Whole interface will all panels  \label{fig:wholeapp}}
-\end{figure}
-
-\clearpage
-\pagebreak
 \begin{figure}
   \centering
-	\includegraphics[width=\textwidth]{NewGame.png}
-  \caption{New game dialog  \label{fig:newgamedialog}}
+	\includegraphics[width=\textwidth]{"resources/WholeApp.png}
+  \caption{Whole interface will all panels  \label{fig:chessPieces}}
 \end{figure}
 
-\clearpage
-\pagebreak
-\begin{figure}[!htb]
-\minipage{0.45\textwidth}
-  \includegraphics[width=7cm]{Menu.png}
-  \caption{Available menu  \label{fig:menu1}}
-\endminipage\hfill
-\minipage{0.45\textwidth}
-  \includegraphics[width=6cm]{Menu2.png}
-  \caption{Sub Menus with functionality  \label{fig:menu2}}
-\endminipage\hfill
-\end{figure}
-These two pictures demonstrate the menu with functionality to show or hide panels in the program. They are all written by Swing and JMenu, JMenuItem and JCheckBoxMenuItem methods. There are also Mnemonic and Accelerator for necessary items in menu like shotcut key Ctrl+N is assigned for new game or Alt+G is for \textit{Game menu} and so on. 
-
-\begin{comment}
 \begin{figure}
   \centering
-	\includegraphics[width=7cm]{Menu.png}
+	\includegraphics[width=\textwidth]{"resources/NewGame.png}
+  \caption{New game dialog  \label{fig:chessPieces}}
+\end{figure}
+
+\begin{figure}
+  \centering
+	\includegraphics[width=\textwidth]{"resources/Menu.png}
   \caption{Available menu  \label{fig:chessPieces}}
 \end{figure}
 
 \begin{figure}
   \centering
-	\includegraphics[width=7cm]{Menu2.png}
-  \caption{Sub Menus with functionality  \label{fig:chessPieces}}
+	\includegraphics[width=\textwidth]{"resources/Menu2.png}
+  \caption{SubMenu and functionality  \label{fig:chessPieces}}
 \end{figure}
-\end{comment}
+
 %-----------------------------------------------------------------------------------------
 % Other Non-functional Requirements
 %-----------------------------------------------------------------------------------------

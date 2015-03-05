@@ -1,0 +1,240 @@
+\ifglsentryexists{Linux}{}%
+{%
+\gls@defglossaryentry{Linux}%
+{%
+name={Linux},%
+sort={Linux},%
+type={main},%
+first={Linux},%
+firstplural={Linuces},%
+text={Linux},%
+plural={Linuces},%
+description={is a generic term referring to the family of Unix-like computer operating systems that use the Linux kernel},%
+descriptionplural={is a generic term referring to the family of Unix-like computer operating systems that use the Linux kernel},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{Windows}{}%
+{%
+\gls@defglossaryentry{Windows}%
+{%
+name={Windows},%
+sort={Windows},%
+type={main},%
+first={Windows},%
+firstplural={Windowss},%
+text={Windows},%
+plural={Windowss},%
+description={is a proprietary OS from Microsoft\textregistered },%
+descriptionplural={is a proprietary OS from Microsoft\textregistered },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{OS X}{}%
+{%
+\gls@defglossaryentry{OS X}%
+{%
+name={OS X},%
+sort={OS X},%
+type={main},%
+first={OS X},%
+firstplural={OS Xs},%
+text={OS X},%
+plural={OS Xs},%
+description={The proprietary OS from Apple\textregistered {} used on Imacs\textregistered {} and MacBooks\textregistered . Based on BSD Unix.},%
+descriptionplural={The proprietary OS from Apple\textregistered {} used on Imacs\textregistered {} and MacBooks\textregistered . Based on BSD Unix.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{OS}{}%
+{%
+\gls@defglossaryentry{OS}%
+{%
+name={OS},%
+sort={OS},%
+type={main},%
+first={OS},%
+firstplural={OSs},%
+text={OS},%
+plural={OSs},%
+description={Operating System, the software that makes a PC or device work.},%
+descriptionplural={Operating System, the software that makes a PC or device work.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{UCI}{}%
+{%
+\gls@defglossaryentry{UCI}%
+{%
+name={UCI},%
+sort={UCI},%
+type={main},%
+first={UCI},%
+firstplural={UCIs},%
+text={UCI},%
+plural={UCIs},%
+description={Universal Chess Interface, is an open communication protocol that enables a chess program's engine to communicate with its user interface},%
+descriptionplural={Universal Chess Interface, is an open communication protocol that enables a chess program's engine to communicate with its user interface},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{TCP/IP}{}%
+{%
+\gls@defglossaryentry{TCP/IP}%
+{%
+name={TCP/IP},%
+sort={TCP/IP},%
+type={main},%
+first={TCP/IP},%
+firstplural={TCP/IPs},%
+text={TCP/IP},%
+plural={TCP/IPs},%
+description={Transmission Control Prototcol / Internet Protocol, the standard protocol of the Internet},%
+descriptionplural={Transmission Control Prototcol / Internet Protocol, the standard protocol of the Internet},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{IOP}{}%
+{%
+\gls@defglossaryentry{IOP}%
+{%
+name={IP},%
+sort={IP},%
+type={main},%
+first={IP},%
+firstplural={IPs},%
+text={IP},%
+plural={IPs},%
+description={See TCP/IP},%
+descriptionplural={See TCP/IP},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{PNG}{}%
+{%
+\gls@defglossaryentry{PNG}%
+{%
+name={PNG},%
+sort={PNG},%
+type={main},%
+first={PNG},%
+firstplural={PNGs},%
+text={PNG},%
+plural={PNGs},%
+description={Portable Game Notation, see references},%
+descriptionplural={Portable Game Notation, see references},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
