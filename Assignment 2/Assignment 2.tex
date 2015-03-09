@@ -22,7 +22,7 @@
 \usepackage{url} % URL in Footnote  
 \usepackage{cite} % BibLatex
 \usepackage{babel,blindtext} %produce some bloody text
-
+\usepackage{listings}
 \usepackage[table]{xcolor}
 \usepackage{csquotes} %Quotation
 \usepackage[document]{ragged2e} % Justify
@@ -111,7 +111,7 @@
     \hline
     Name & Date & Reason of changes & Version \\ \hline \hline
     Simon Hewitt & 28/3/15 & Added Requirements & 0.1 \\ \hline 
-    7 & 8 & 9 & 11 \\
+    Team & 9/3/15 & All sections complete & 0.2 \\
     \hline
   \end{tabular}
 \end{center}
@@ -144,8 +144,11 @@ This document is intended for two audiences, the customer commissioning the game
 The product, a game application, is intended to be a relatively simple and entry-level chess game that is none the less fully functioning and useable by beginner or expert Chess players. By using an open source Chess engine we expect to be able to provide a challenging game to expert players. By providing a network capability, we can provide the opportunity for two players to play at a remote distance, for instance while both attending different lectures. 
 
 \subsection{References}
-References are listed at the end of the document
+References are listed at the end of the document.
 
+All documentation related to this project are available on GitHub as a public repository:\\
+\textbf{https://github.com/csm24/CS-M24}\\
+In particular the minutes of meetings and Java source code used to create the UI mock-ups are available here. 
 
 %-----------------------------------------------------------------------------------------
 % Overall Description
@@ -202,9 +205,17 @@ The user desktop OS is of course an attribute of the devices (laptop, PC) used. 
 
 \subsection{Design and Implementation Constraints}
 
-\todo{Design manager (whohe?)}
+The constraints in this project on design and documentation are:
 
-Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization will be responsible for maintaining the delivered software).
+
+\begin{itemize}
+  \item The largest issue arising to date is that the project is intended for a team of 5 people, and we are now only three people. To manage this we will ensure we prioritise the requirements and delivery to deliver a cohesive, working application, although it may lack some required features. 
+  \item The project has decided to use Java, and this may impose some limitations on the GUI standards and on the interoperability , particularly on tablets and phones. 
+  \item We will be constrained by the choice of open source Chess engines, which may create problems with implementation footprint, version incompatibilities etc. These will not be known until development is underway.  
+\item Security is limited and there will be little to prevent another user from examining the application. As the App stores no sensitive data, this omission is one of the trade-offs we need to make to manage delivery. 
+\end{itemize}
+
+
 
 \subsection{User Documentation}
 No external User Documentation will be created. The App \textbf{Help} pages will be sufficiently detailed to enable a new user to play the game. We will not be explaining the rules of Chess, but the game board does not allow illegal moves to be made, so the game can also act as a tutor to new players, to some extent. 
@@ -265,7 +276,6 @@ Persistent store is needed, no design decision has been made yet as to what form
 
 \subsection{Software Interfaces}
 
-\todo{Software Interfaces }
 
 The game uses a third party Chess Engine. Initial plans are to use Stock Fish \cite{stockfish}
 as it is widely regarded as a powerful Chess engine, it is open source, and the entire source is available on GitHum \cite{stockfish-github}. Stockfish is coded in C++, so the first challenge is to incorporate a C++ compiled module into Java bytecode, resources are available online to help with this, such as \cite{javaStockfish}. 
@@ -578,7 +588,6 @@ After that, moves are exchanged until the game is complete or either played sele
 
 \subsection{User Interface }
 
-%\todo{Mohamed Khaliqi - add wireframes here}
 
 
 In this Section, A demonstration of the software will be shown as below. In order to have Mock up, we used JAVA and JFC and Swing GUI\footnote{The hard code of this demo is available if it is needed.}. According to Walrath, Kathy \footnote{The same article is also available in Java JFC and Swing tutorial in Oracle website : \url{http://docs.oracle.com/javase/tutorial/uiswing/start/about.html}} ``JFC is short for Java Foundation Classes, which encompass a group of features for building graphical user interfaces (GUIs) and adding rich graphics functionality and interactivity to Java applications. It is defined as containing the features shown in the table below.'' and Swing ``Includes everything from buttons to split panes to tables. Many components are capable of sorting, printing, and drag and drop, to name a few of the supported features. '' \cite{walrath2004jfc} \\
@@ -731,17 +740,22 @@ If the game were extended to a Internet enabled game, these limitations would no
 
 \subsection{Software Quality Attributes}
 
-Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.
+The project will of course strive for a high standard of software quality. The tools we will use to achieve this are:
 
 
+\begin{itemize}
+  \item The class design will support isolation of concerns, loose coupling and adaptability. 
+  \item Conformance with    'Bob’s Concise Coding Conventions (C3 )' \cite{bobsccc} will ensure the readability and help drive the reliability of the code.
+\item Doxygen will create the software documentation, this makes it easier to ensure the software and the docs are aligned.
+\item The team will perform peer code reviews on all code and verify the Doxygen documentation is correct.
+\item The test manager will review all test classes and check they are adequate to ensure a quality software delivery. 
+  \item Each of the team will develop unit test classes along with the classes that they are allocated for development.
+\item A complete unit and interface test suite will be developed and run as part of the build cycle. 
+\item Using Git and GitHub helps  manage concurrent development and safe commit points. 
+\item A RDA development approach will ensure we converge on the customers real requirements and will enable us to identify the choke points early on in the development. 
+\item Focus will be on usability and completeness, if necessary at the expense of attributes such as availability and correctness. 
+\end{itemize}
 
-
-%-----------------------------------------------------------------------------------------
-% Other Requirements
-%-----------------------------------------------------------------------------------------
-
-\section{Other Requirements}
-Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.
 
 
 %-----------------------------------------------------------------------------------------
@@ -808,22 +822,269 @@ Define any other requirements not covered elsewhere in the SRS. This might inclu
 \glsaddall
 
 
-\section{Analysis Models}
-\todo {Ifetayo - add Use Case models here???}
-
-Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.
 \section{To Be Determined List \label{TBDList}}
 \begin{enumerate}
-  \item Use UIC or PNG for exchanging Chess move data?
+  \item Use UIC or PNG for exchanging Chess move data
+\item Choice of Chess engine
 \end{enumerate}
 
-%\section{References}
 
-%\printbibliography[title=references]
+\section {Team Minutes}
+   \lstset{language=C++,
+           basicstyle=\ttfamily,
+           keywordstyle=\color{blue}\ttfamily,
+           stringstyle=\color{red}\ttfamily,
+           commentstyle=\color{green}\ttfamily,
+          breaklines=true
+          }
+\begin{lstlisting}[frame=single,caption=Meeting of 9/2/15,label=minutes1]
+
+
+Minutes of Meeting 2: Simon, Ifetayo, Mo, David
+-----------------------------------------------
+Date: 9th Feb 2015
+Start: 15:02
+End: 15:51
+
+Next Meeting: 11th Feb 12:00
+
+Topics Discussed:
+-- Group name decided upon = SwanTech
+-- Team roles discussed based on strengths and preference. 
+	Simon = Customer Interface Manager
+	David = Design Manager
+	Ifetayo = Implementation Manager
+	Mo = Test Manager
+	Planning & Quality Manager = Unassigned and therefore split between
+	 members.
+-- Discussed familiarity with software, programming languages and applicable services
+   such as Latex, Java and GitHub. Also considered tutorials to aid with any unfamiliarity. 
+-- Programming software to be used and compared as part of project =  NetBeans vs. Eclipse.
+
+Progress Since Last Meeting:
+-- Facebook group setup to aid communication and organisation.
+-- Shared area set up on blackboard for file storage.
+-- Minute and coding convention guidelines read.
+
+TODO:
+-- Mo = Check JUnit test framework for full testing capability including GUI.
+      = Set up GitHub account and share tutorial links.
+-- Simon = Check with client whether Latex is a requirement or recommendation for project.
+	 = Skeleton for next assignment.
+-- David = View tutorials and get acquainted with Latex and Java programming software.
+	 = Collate team contributions into document for submittal.
+-- Ifetayo = Investigate which version of java will be used and program for project 
+   management(Gantt Chart).
+-- ALL = Ensure relavent software is installed and updated.
+       = Read Doxygen introduction.
+       = Write page on what each member expects to be doing when project is given including an
+	 outline of sections which each member feels needs to be part of the projects documentation.
+	 SEND TO DAVID BY MONDAY 16TH!!
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=Meeting of 11/2/15,label=minutes2]
+Minutes of Meeting 2: Simon, Ifetayo, Mo, David
+-----------------------------------------------
+Date: 11th Feb 2015
+Start: 11:50
+End: 12:00
+
+Next Meeting: 16th Feb 15:00
+
+Topics Discussed:
+-- Decided to use Latex for the project write up.
+-- Discussed the use of project management suite visual studio online.
+-- Pages of report coming along well.
+
+Progress Since Last Meeting:
+-- Possible template for project found.
+-- GitHub for the group set up.
+
+TODO:
+-- All = Complete pages for report.
+       = Finish any other tasks set from previous meeting.
+       = Think about timeline/activity schedule to be followed when project specifications given.
+
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=Meeting of 16/2/15,label=minutes3]
+
+Minutes of Meeting 3: Simon, Ifetayo, Mo, David
+-----------------------------------------------
+Date: 16th Feb 2015
+Start: 15:03
+End: 15:22
+
+Next Meeting: 18th Feb 12:00
+
+Topics Discussed:
+-- Mo found a plugin for eclipse which allows testing of GUI and other plugins to aid code quality namely PMD and CodePro Analytix.
+-- Discussed how the code repository is to function in relation to errors and branches.
+-- Submittal process for the assignment.
+-- Setting up visual studio online for project management.
+
+Progress Since Last Meeting:
+-- Completed pages for assignment report.
+-- Decided upon Java version.
+-- Facebook issues resolved.
+-- Doxygen notes read.
+
+TODO:
+-- Mo + David = Final additions and tweaks to assignment before everyone submits.
+-- All = Set up microsoft accounts for using visual studio online.
+       = Submit the assignment by Wednesday 18th 11:00.
+
+
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=Meeting of 23/2/15,label=minutes4]
+
+Minutes of Meeting 4: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 23th Feb 2015
+Start: 15:00
+End: 15:30
+
+Next Meeting: 25th Feb 12:00
+
+Topics Discussed:
+-- Assignment part 2 released and discussed. Task - design a Chess program
+-- Open issues and questions - SH to discuss with Dr Mora (arranged Tuesday 24 16:00)
+-- SH to create issues log etc
+-- Ifetayo suggested we all bring initial design ideas on Class structure to Wednesday lecture
+-- SH to set up requirements spec
+
+Progress Since Last Meeting:
+-- Assignment 1 submitted on time
+
+TODO:
+-- All = Set up microsoft accounts for using visual studio online.
+-- SH to set up meeting with Dr Mora, and request extension (done)
+-- Initial Class design ideas by Wednesday
+
+Questions for Dr Mora
+
+What devices do we need to run on - can we exclude IOS & OS X?
+Assuming Java - hence problems with IOS & OS X
+Is a web only solution acceptable?
+Android, do we need to supply APK file?
+Who will sign off the requirements?
+Clarify `Computer Human Network`
+Device to device - same subnet?
+Ports blocked at Swansea?
+
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=Meeting of 26/2/15,label=minutes5]
+
+Minutes of Meeting 5: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 26th Feb 2015
+Start: 13:10
+End: 14:20
+
+Next Meeting: 2nd Mar 15:00
+
+Topics Discussed:
+-- Discussion from Dr.Mora`s course work feedback
+--- Course work part 2 Specification and Design Document discussed 
+--- Update on open issues and questions from last meeting
+--- Feedback from Simon on meeting with Dr.Mora
+--- Discussion of individual class diagrams (Identification of the objects)
+--- Best way to go about the development of the project (web maybe?)
+-- Chess engine is to be run local on each instance of the app
+-- Simon has come up with a template for the team`s documentation. No user documentation and security requirements, additional sections are to be added as appilicable
+-- Unicode characters for the chess pieces can be used for documentation
+-- Latex is to be used for all documentation purposes
+
+Progress Since Last Meeting:
+-- Ambiguities from the requirement documentation have been clarified
+-- No IOS development is to be done
+
+TODO:
+-- Ifetayo is to design the class diagram and use cases
+--- Simon is to draft the project requirements and design the state chart
+--- Mo is to design the UML, Mock up, logo, convert the teams agreed document template to latex and document the state chart design from Simon
+-- Movelist feature is to be of low priority
+-- Persisting data is to be done however the member handling it decides
+-- Doxygen generation of class diagram using Argo or doxygen is to be investigated by Mo
+
+
+Questions for next meeting
+
+What technology or approach is suitable for the project implementation
+Other language possibilities
+
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=Meeting of 2/3/15,label=minutes6]
+
+Minutes of Meeting 6: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 2nd March 2015
+Start: 13:00
+End: 14:00
+
+Next Meeting: 9th Mar 15:00
+
+Topics Discussed:
+
+--- Ifetayo`s class diagram discussed at length. SH & MK to read and comment
+--- Wire Frame interface layout - Mo to produce soon.
+--- Requirements - complete, to be reviewed.
+
+
+Progress Since Last Meeting:
+--- latex software development spec complete and partly populated
+--- Class diagram 1st draft complete
+
+TODO:
+-- Ifetayo is to complete design the class diagram and use cases
+--- Simon is to design the state chart
+--- Mo is to design the UML, Mock up, logo, 
+-- Persisting data is to be done however the member handling it decides
+-- Doxygen generation of class diagram using Argo or Doxygen is to be investigated by Mo
+
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=Meeting of 9/3/15,label=minutes7]
+
+Minutes of Meeting 7: Simon, Ifetayo, Mo
+-----------------------------------------------
+Date: 9th March 2015
+Start: 13:00
+End: 13:30
+
+Next Meeting: 16th Mar 15:00
+
+Topics Discussed:
+
+ Ifetayo`s class diagram agreed.
+--- Wire Frame interface layout - Mo produced, look good.
+--- The wire frame are produced in Java. We agreed the Java source will be available on
+      GitHub for examination if desired. 
+--- SH agreed to complete remaining unallocated sessions.
+--- Ifetayo will insert Class Diagrams into latex before Wednesday
+--- All on target for deadline
+
+
+
+Progress Since Last Meeting:
+--- Class diagrams, requirements, class diagrams, UML all complete
+--- Report on target for deadline Wednesday 11/3/15
+
+TODO:
+-- Ifetayo is to complete design the class diagram and use cases and add to LaTex doc 
+ Mo is to add the UML, Mock up, logo, to report
+
+\end{lstlisting}
+
+
 
 
 \clearpage
 \pagebreak
+\section{References}
 \bibliography{Assignment_2}{}
 \bibliographystyle{ieeetr}
 
