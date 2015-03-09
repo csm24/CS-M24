@@ -14,7 +14,6 @@
 \usepackage{lastpage} % Required to determine the last page for the footer
 \usepackage{extramarks} % Required for headers and footers
 \usepackage{graphicx} % Required to insert images
-\usepackage{graphicx}
 \graphicspath{ {resources/} }
 \usepackage{comment} % Comment
 \usepackage[english]{babel}
@@ -54,7 +53,7 @@
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 \newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
-\title{	
+\title{
 \normalfont \normalsize 
 \begin{LARGE} \textsc{Swansea University} \end{LARGE} \\ [15pt] % Your university, school and/or department name(s)
 \begin{large} \textsc{Computer Science} \end{large} \\ [15pt] % Your university, school and/or department name(s)
@@ -76,6 +75,10 @@
 % Page Title
 %------------------------------------------------------------------------------------
 \begin{titlepage}
+\begin{figure}
+  \centering
+	\includegraphics[width=4cm]{swantech_chess_logo}
+\end{figure}
 \maketitle
 %\center \begin{LARGE} Software Technology Project Development, CS-M40\\ \end{LARGE}
 \vspace{50px}
@@ -577,18 +580,16 @@ After that, moves are exchanged until the game is complete or either played sele
 \end{table}
 
 \subsection{User Interface }
-
 %\todo{Mohamed Khaliqi - add wireframes here}
-
-
 In this Section, A demonstration of the software will be shown as below. In order to have Mock up, we used JAVA and JFC and Swing GUI\footnote{The hard code of this demo is available if it is needed.}. According to Walrath, Kathy \footnote{The same article is also available in Java JFC and Swing tutorial in Oracle website : \url{http://docs.oracle.com/javase/tutorial/uiswing/start/about.html}} ``JFC is short for Java Foundation Classes, which encompass a group of features for building graphical user interfaces (GUIs) and adding rich graphics functionality and interactivity to Java applications. It is defined as containing the features shown in the table below.'' and Swing ``Includes everything from buttons to split panes to tables. Many components are capable of sorting, printing, and drag and drop, to name a few of the supported features. '' \cite{walrath2004jfc} \\
 
 \begin{figure}[h]
   \centering
 	\includegraphics[width=\textwidth]{WholeApp.png}
-  \caption{Whole interface will all panels  \label{fig:wholeapp}}
+  \caption{Whole interface will all panels}
+  \label{fig:wholeapp}
 \end{figure}
-
+Above figure shows all aspect of the application. Menus, panels and board in the middle of the screen. The final project will be very similar to this figure.
 \clearpage
 \pagebreak
 \begin{figure}
@@ -596,7 +597,7 @@ In this Section, A demonstration of the software will be shown as below. In orde
 	\includegraphics[width=\textwidth]{NewGame.png}
   \caption{New game dialog  \label{fig:newgamedialog}}
 \end{figure}
-
+In this figure, when user try to start a new game, a dialog with three options comes to the screen and user should choose the type of game. The default option is play with friend in the curent computer. Depends on user choice the type of game will change.  
 \clearpage
 \pagebreak
 \begin{figure}[!htb]
@@ -633,8 +634,18 @@ These two pictures demonstrate the menu with functionality to show or hide panel
 
 
 \subsection {UML Collaboration Diagram}
-
-
+\subsubsection{Activity Diagram}
+According to Booch, Grady ``Activity diagrams are graphical representations of workflows of stepwise activities and actions with support for choice, iteration and concurrency. In the UML, activity diagrams are intended to model both computational and organisational processes. Activity diagrams show the overall flow of control.''\cite{booch1999uml}\\
+In this diagram(next page), some part of the system has been broken to \textit{Call Activity Nodes} because of limit space in the page. First one on top, is about how to uncheck when the player is check. Second one, explain why a piece might be impossible to move. Next one is all possible movement and the last one is when a player is check and how can player should react when it is checked. To uncheck(if it is possible), the first call activity node is solution.
+\clearpage
+\pagebreak
+\begin{figure}
+  \centering
+	\includegraphics[width=\textwidth]{activitydiagram}
+  \caption{Project Activity Diagram  \label{fig:activitydiagram}}
+\end{figure}
+\clearpage
+\pagebreak
 %-----------------------------------------------------------------------------------------
 % Other Non-functional Requirements
 %-----------------------------------------------------------------------------------------
