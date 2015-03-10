@@ -678,11 +678,11 @@ Class \textit{Computer, Human} to \textit{Player} class
 The following classes/interface depict composite relationships
 \begin{itemize}
 \item
-An \textit{App} is consists of a \textit{MenuList, Game}
+An \textit{App} consists of a \textit{MenuList, Game}
 \item
 A player \textit{Profile} consists of \textit{MoveList}
 \item
-\textit{Player} interfaces to \textit{PlayerCollection}
+\textit{Player} interface to \textit{PlayerCollection}
 \item
 A \textit{Game} has a \textit{Board}
 \item
@@ -751,7 +751,7 @@ Here the player can either
 \subsubsection{Preconditions}
 Game players are known.
 \subsubsection{Main Flow}
-Once a player has been picked several use case are used to determine that move
+Once a player has been picked several use cases are used to determine their moves.
 \subsubsection{Sub Flow}
 \begin{itemize}
 \item
@@ -761,16 +761,15 @@ Check if it is the users' turn to play using the Is My Turn use case
 \item
 Interact with the chess engine using the chess engine use case. Send and receive moves over the network if second player is over the network.
 \end{itemize}
-
 \subsubsection{Alternative Flows}
-Make Moves can be used to perform these other functions
+Make Moves use case can be used to perform these other functions:
 \begin{itemize}
 \item
 Move to a new location using the Move To Location use case
 \item
-Make Moves may be used to check or checkmate a player using the Checkor Checkmate use case
+Make Moves may be used to check or checkmate a player using the Check or Checkmate use case
 \item
-Make Moves may used to capture a piece using the Capture Piece use case
+Make Moves may be used to capture a piece using the Capture Piece use case
 \end{itemize}
 
 \subsection {UML Collaboration Diagram}
