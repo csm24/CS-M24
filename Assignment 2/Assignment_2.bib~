@@ -112,6 +112,14 @@
 	Note = {Available at \url{http://docs.oracle.com/javase/tutorial/uiswing/start/about.html}},
 	Title = {About the JFC and Swing (The Java{\texttrademark} Tutorials, Creating a GUI With JFC, Swing, Getting Started with Swing)}}
 
+@book{walrath2004jfc,
+<<<<<<< HEAD
+  title={The JFC Swing tutorial: a guide to constructing GUIs},
+  author={Walrath, Kathy},
+  volume={1},
+  year={2004},
+  publisher={Addison-Wesley Professional}
+}
 
 @article{booch1999uml,
   title={UML in action},
