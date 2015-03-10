@@ -642,7 +642,136 @@ These two pictures demonstrate the menu with functionality to show or hide panel
 \section{System Design}
 
 \subsection {Class Structure}
+The class diagram displayed below states the proposed classes most relevant in the design of the application and by no means exhaustive or final. It shows the structure of the proposed system classes, their attributes, methods and the relationship each class has with the others.
+It gives a quick and intuitive picture of the important entities of the system. It presents details and a possible transition from 'what' the system would do to 'how' the system would do it (implementation wise). By default all attributes (with accessors doing the getting and setting, but not shown in the diagram) and methods have been set to private, denoted by "-" preceding the attribute or method name. Class instances (objects) and their relation to other classes have been stated e.g one Game class instance can have only one New Game class instance.\cite[Chapter~3]{umldistilled}
+\clearpage
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=15cm, height=20cm]{./resources/classdiagram.png}
+  \caption{Class Diagram}
+\end{figure}
 
+The following class relationships and associative types have been considered:
+\begin{itemize}
+\item
+Association
+\item
+Composition
+\item 
+Dependency
+\item
+Aggregation
+\item
+Generalization
+\end{itemize}
+
+\subsubsection{Generalization relationship}
+The following are depicted to have inheritance relationships
+\begin{itemize}
+\item
+Class \textit{Bishop, Pawn, King, Knight, Queen, Rook} to \textit{Piece} class
+\item
+Class \textit{Computer, Human} to \textit{Player} class
+\end{itemize}
+
+\subsubsection{Composite relationship}
+The following classes/interface depict composite relationships
+\begin{itemize}
+\item
+An \textit{App} is consists of a \textit{MenuList, Game}
+\item
+A player \textit{Profile} consists of \textit{MoveList}
+\item
+\textit{Player} interfaces to \textit{PlayerCollection}
+\item
+A \textit{Game} has a \textit{Board}
+\item
+A \textit{Game} has a \textit{ChessEngine} interface
+\item
+A \textit{SquareCollection} has many \textit{Square}
+\end{itemize}
+Each enumeration has a composite relationship between the classes it is associated to.
+
+\subsubsection{Dependency relationship}
+The following depicts dependency relationship
+\begin{itemize}
+\item
+\textit{Player} interface and the \textit{ChessEngine}
+\end{itemize}
+
+\subsection{Subsystems Design}
+As described by Peretz \cite{Peretzsubsystems} it is generally desirable when developing systems to first define subsystems and decide on their development priorities. Partitioning domain or decomposing the system into sub-domains or smaller units not only helps us understand the system and but also understand the flow interaction between each sub-domain. Here subsystems are defined as domains.
+\begin{itemize}
+\item
+User interface domain
+\item
+Logic and Processing domain
+\item
+Data interface domain
+\end{itemize}
+Defining these domains as listed above leaves room for considerably more freedom in implementation. This figure just gives a precise domain concept that is going to be used in implementation. What this basically gives is an understanding of the reasoning behind the system design, and classes can be associated with these domains as applicable \cite{PauletRoelsubsystemX}.
+\clearpage
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=15cm, height=20cm]{./resources/subsystems.png}
+  \caption{Subsystem Diagram}
+\end{figure}
+\subsection{Use Case Diagram}
+This diagram is used to describe the functionalities of the application.
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=15cm, height=20cm]{./resources/usecase.png}
+  \caption{Use case Diagram}
+\end{figure}
+The actors here are identified as the Player. The player is extended by the human player and computer player.
+
+\subsubsection{Flow of Events for the Game use case}
+\subsubsection{Precondition}
+The app has been initialized.
+\subsubsection{Mani Flow}
+This case begins when the user initializes the app.
+\subsubsection{Sub Flow}
+\begin{itemize}
+\item
+\textit{Game:} The human player starts the game using the Game use case, initializing the board
+\item
+Here the player can either
+\subitem
+\textit{Pick an opponent}
+\subitem
+\textit{Pick a player profile}
+\subitem
+\textit{Create a profile}
+\subitem
+\textit{Choose a side}
+\subitem
+\textit{View Profile}
+\end{itemize}
+\subsubsection{Flow of Events for Make Moves use case}
+\subsubsection{Preconditions}
+Game players are known.
+\subsubsection{Main Flow}
+Once a player has been picked several use case are used to determine that move
+\subsubsection{Sub Flow}
+\begin{itemize}
+\item
+Validate move using Is My Move Valid use case
+\item
+Check if it is the users' turn to play using the Is My Turn use case
+\item
+Interact with the chess engine using the chess engine use case. Send and receive moves over the network if second player is over the network.
+\end{itemize}
+
+\subsubsection{Alternative Flows}
+Make Moves can be used to perform these other functions
+\begin{itemize}
+\item
+Move to a new location using the Move To Location use case
+\item
+Make Moves may be used to check or checkmate a player using the Checkor Checkmate use case
+\item
+Make Moves may used to capture a piece using the Capture Piece use case
+\end{itemize}
 
 \subsection {UML Collaboration Diagram}
 \subsubsection{Activity Diagram}

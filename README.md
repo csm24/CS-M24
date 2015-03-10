@@ -14,4 +14,4 @@ This GitHub repository holds all project artefacts.
 
 Simon Hewitt, 806068  
 Mohamad Khaleqi, 808956  
-Ifetayo Agunbiade
+Ifetayo Agunbiade, 808224
