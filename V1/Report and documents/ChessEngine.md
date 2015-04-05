@@ -7,7 +7,7 @@ There are 8 public methods (as of 5/4/15 18:00), but only 3 really significant.
 To use the engine, the sequence is,   
 First instantiate a chess engine  
 ```java
-    ChessEngine myEngine = new ChessEngine(PlayColour.BLACK) (or White)
+ChessEngine myEngine = new ChessEngine(PlayColour.BLACK) (or White)
 ```
 Then repeat the sequence: 
  
@@ -47,9 +47,13 @@ http://rahular.com/stockfish-port-for-java/
 * the Junit community at   
 http://junit.org/
 
+###Other references:
+* UCI, Universal Chess Interface  
+http://wbec-ridderkerk.nl/html/UCIProtocol.html
+
 ---
 
-###Still to be done:
+##Still to be done:
 1. History. The class keep history, a simple method is needed to return the history as a string.
 1. User profile? Probably no need. The Chess Engine users are set up as *Boris Spasky* and *Bobby Fischer*, but this is never seen. 
 1. Castling, en-passant takes, promotion. The ICTK library and Stockfish supports all of these but I have provided no interface yet. 
