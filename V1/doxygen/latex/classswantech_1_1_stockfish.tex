@@ -1,0 +1,164 @@
+\hypertarget{classswantech_1_1_stockfish}{}\section{swantech.\+Stockfish Class Reference}
+\label{classswantech_1_1_stockfish}\index{swantech.\+Stockfish@{swantech.\+Stockfish}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classswantech_1_1_stockfish_a71a5472eb04f588e05418aec0bbbb167}{}{\bfseries Stockfish} (String engine\+Path)\label{classswantech_1_1_stockfish_a71a5472eb04f588e05418aec0bbbb167}
+
+\item 
+boolean \hyperlink{classswantech_1_1_stockfish_a19ab1ebc8d457f5743443bebe8ddd252}{start\+Engine} ()
+\item 
+void \hyperlink{classswantech_1_1_stockfish_a0b971d0f645065262487fb597347d74f}{send\+Command} (String command)
+\item 
+String \hyperlink{classswantech_1_1_stockfish_ae3766542f6513e9108d6e9ac0f6ea26b}{get\+Output} (int wait\+Time)
+\item 
+String \hyperlink{classswantech_1_1_stockfish_ab07795178cafa2c3f267ea274f4937be}{get\+Best\+Move} (String fen, int wait\+Time)
+\item 
+void \hyperlink{classswantech_1_1_stockfish_af97e469fd321bac056aed5251caa7284}{stop\+Engine} ()
+\item 
+String \hyperlink{classswantech_1_1_stockfish_a3e4c08a813a401dad9c0a8d98930beb0}{get\+Legal\+Moves} (String fen)
+\item 
+void \hyperlink{classswantech_1_1_stockfish_a15ce41395a20cc5be33df45b527de904}{draw\+Board} (String fen)
+\item 
+float \hyperlink{classswantech_1_1_stockfish_ad7bf5b45f2fe6b4d60827c734f509a65}{get\+Eval\+Score} (String fen, int wait\+Time)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A simple and efficient client to run \hyperlink{classswantech_1_1_stockfish}{Stockfish} from Java
+
+\begin{DoxyAuthor}{Author}
+Rahul A R Acknowledhgements to Rahul, this library has been renamed to package Swantech but otherwise unchanghed. Rahul can be found at \href{http://rahular.com/stockfish-port-for-java/}{\tt http\+://rahular.\+com/stockfish-\/port-\/for-\/java/} 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classswantech_1_1_stockfish_a15ce41395a20cc5be33df45b527de904}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!draw\+Board@{draw\+Board}}
+\index{draw\+Board@{draw\+Board}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{draw\+Board}]{\setlength{\rightskip}{0pt plus 5cm}void swantech.\+Stockfish.\+draw\+Board (
+\begin{DoxyParamCaption}
+\item[{String}]{fen}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_a15ce41395a20cc5be33df45b527de904}
+Draws the current state of the chess board
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswantech_1_1_stockfish_ab07795178cafa2c3f267ea274f4937be}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!get\+Best\+Move@{get\+Best\+Move}}
+\index{get\+Best\+Move@{get\+Best\+Move}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{get\+Best\+Move}]{\setlength{\rightskip}{0pt plus 5cm}String swantech.\+Stockfish.\+get\+Best\+Move (
+\begin{DoxyParamCaption}
+\item[{String}]{fen, }
+\item[{int}]{wait\+Time}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_ab07795178cafa2c3f267ea274f4937be}
+This function returns the best move for a given position after calculating for \textquotesingle{}wait\+Time\textquotesingle{} ms
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+{\em wait\+Time} & in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Best Move in P\+G\+N format 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_stockfish_ad7bf5b45f2fe6b4d60827c734f509a65}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!get\+Eval\+Score@{get\+Eval\+Score}}
+\index{get\+Eval\+Score@{get\+Eval\+Score}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{get\+Eval\+Score}]{\setlength{\rightskip}{0pt plus 5cm}float swantech.\+Stockfish.\+get\+Eval\+Score (
+\begin{DoxyParamCaption}
+\item[{String}]{fen, }
+\item[{int}]{wait\+Time}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_ad7bf5b45f2fe6b4d60827c734f509a65}
+Get the evaluation score of a given board position 
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+{\em wait\+Time} & in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+eval\+Score 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_stockfish_a3e4c08a813a401dad9c0a8d98930beb0}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!get\+Legal\+Moves@{get\+Legal\+Moves}}
+\index{get\+Legal\+Moves@{get\+Legal\+Moves}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{get\+Legal\+Moves}]{\setlength{\rightskip}{0pt plus 5cm}String swantech.\+Stockfish.\+get\+Legal\+Moves (
+\begin{DoxyParamCaption}
+\item[{String}]{fen}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_a3e4c08a813a401dad9c0a8d98930beb0}
+Get a list of all legal moves from the given position
+
+
+\begin{DoxyParams}{Parameters}
+{\em fen} & Position string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String of moves 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_stockfish_ae3766542f6513e9108d6e9ac0f6ea26b}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{get\+Output}]{\setlength{\rightskip}{0pt plus 5cm}String swantech.\+Stockfish.\+get\+Output (
+\begin{DoxyParamCaption}
+\item[{int}]{wait\+Time}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_ae3766542f6513e9108d6e9ac0f6ea26b}
+This is generally called right after \textquotesingle{}send\+Command\textquotesingle{} for getting the raw output from \hyperlink{classswantech_1_1_stockfish}{Stockfish}
+
+
+\begin{DoxyParams}{Parameters}
+{\em wait\+Time} & Time in milliseconds for which the function waits before reading the output. Useful when a long running command is executed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Raw output from \hyperlink{classswantech_1_1_stockfish}{Stockfish} 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_stockfish_a0b971d0f645065262487fb597347d74f}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!send\+Command@{send\+Command}}
+\index{send\+Command@{send\+Command}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{send\+Command}]{\setlength{\rightskip}{0pt plus 5cm}void swantech.\+Stockfish.\+send\+Command (
+\begin{DoxyParamCaption}
+\item[{String}]{command}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_a0b971d0f645065262487fb597347d74f}
+Takes in any valid U\+C\+I command and executes it
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classswantech_1_1_stockfish_a19ab1ebc8d457f5743443bebe8ddd252}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!start\+Engine@{start\+Engine}}
+\index{start\+Engine@{start\+Engine}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{start\+Engine}]{\setlength{\rightskip}{0pt plus 5cm}boolean swantech.\+Stockfish.\+start\+Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_a19ab1ebc8d457f5743443bebe8ddd252}
+Starts \hyperlink{classswantech_1_1_stockfish}{Stockfish} engine as a process and initializes it
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success. False otherwise 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_stockfish_af97e469fd321bac056aed5251caa7284}{}\index{swantech\+::\+Stockfish@{swantech\+::\+Stockfish}!stop\+Engine@{stop\+Engine}}
+\index{stop\+Engine@{stop\+Engine}!swantech\+::\+Stockfish@{swantech\+::\+Stockfish}}
+\subsubsection[{stop\+Engine}]{\setlength{\rightskip}{0pt plus 5cm}void swantech.\+Stockfish.\+stop\+Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_stockfish_af97e469fd321bac056aed5251caa7284}
+Stops \hyperlink{classswantech_1_1_stockfish}{Stockfish} and cleans up before closing it 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/simon/\+M\+Sc/\+M24\+\_\+\+S\+W\+\_\+\+Team\+\_\+\+Project/\+Test/\+V1/src/swantech/Stockfish.\+java\end{DoxyCompactItemize}

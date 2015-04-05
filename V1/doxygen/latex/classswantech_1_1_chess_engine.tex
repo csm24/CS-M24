@@ -1,0 +1,170 @@
+\hypertarget{classswantech_1_1_chess_engine}{}\section{swantech.\+Chess\+Engine Class Reference}
+\label{classswantech_1_1_chess_engine}\index{swantech.\+Chess\+Engine@{swantech.\+Chess\+Engine}}
+
+
+\hyperlink{classswantech_1_1_chess_engine}{Chess\+Engine} provides an interface to a chess engine such as Stock\+Fish. 
+
+The \hyperlink{classswantech_1_1_chess_engine}{Chess\+Engine} is run as a detached process via a thread, i.\+e. it runs effectively as a daemon, an executable program running in the background. Commands are sent and received as if through standard input/output, and using the U\+C\+I chess interface (Universal Chess Interface, see \href{http://en.wikipedia.org/wiki/Universal_Chess_Interface}{\tt http\+://en.\+wikipedia.\+org/wiki/\+Universal\+\_\+\+Chess\+\_\+\+Interface}) 
+
+Other chess engines could be plugged in. 
+
+Makes extensive use of I\+C\+T\+K library, released under the G\+N\+U G\+P\+L license for public use, Copyright (c) 1997-\/2014 J. Varsoke $<$ictk.\+jvarsoke \mbox{[}at\mbox{]} neverbox.\+com$>$ Thanks and acknowledgements to Author\+: J. Varsoke. I can be reached at jvarsoke at users sourceforge net. see at \href{http://ictk.sourceforge.net/#downloads,}{\tt http\+://ictk.\+sourceforge.\+net/\#downloads,} \href{http://ictk.sourceforge.net/docs/current/}{\tt http\+://ictk.\+sourceforge.\+net/docs/current/} , and samples at Github\+: \href{https://github.com/jvarsoke/ictk/tree/master/src/samples#simplepgndemo}{\tt https\+://github.\+com/jvarsoke/ictk/tree/master/src/samples\#simplepgndemo}.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classswantech_1_1_chess_engine_a206b7f60195b050af7bf73124a359bd5}{Chess\+Engine} (\hyperlink{enumswantech_1_1_play_colour}{Play\+Colour} new\+Engine\+Colour)
+\item 
+Array\+List$<$ Square $>$ \hyperlink{classswantech_1_1_chess_engine_a529858ea407075c6a4daf04d5b3dd51e}{get\+Legal\+Moves} (Square start\+Square)
+\item 
+Chess\+Piece \hyperlink{classswantech_1_1_chess_engine_ad09f3dd52a728a42cdb1515e7104f03e}{get\+Piece\+At} (Square sq)
+\item 
+\hyperlink{enumswantech_1_1_play_colour}{Play\+Colour} \hyperlink{classswantech_1_1_chess_engine_ae6976be646e833558d31d2e3bf242773}{whose\+Move} ()
+\item 
+\hyperlink{enumswantech_1_1_chess_engine_errors}{Chess\+Engine\+Errors} \hyperlink{classswantech_1_1_chess_engine_a0e8106f504de2a1cec26d523865c3d02}{make\+My\+Move} (Square start\+Square, Square end\+Square)
+\item 
+String \hyperlink{classswantech_1_1_chess_engine_a06277d63732bbc472ad1a61e0f5e5ae8}{get\+Game\+F\+E\+N} ()
+\item 
+Chess\+Board \hyperlink{classswantech_1_1_chess_engine_aff2e5a7749c5e48afdbe544b879454fa}{get\+Chess\+Board} ()
+\item 
+Chess\+Move \hyperlink{classswantech_1_1_chess_engine_a4e2edbbc872baf9bd0f180a132090584}{engine\+Move} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classswantech_1_1_chess_engine}{Chess\+Engine} provides an interface to a chess engine such as Stock\+Fish. 
+
+The \hyperlink{classswantech_1_1_chess_engine}{Chess\+Engine} is run as a detached process via a thread, i.\+e. it runs effectively as a daemon, an executable program running in the background. Commands are sent and received as if through standard input/output, and using the U\+C\+I chess interface (Universal Chess Interface, see \href{http://en.wikipedia.org/wiki/Universal_Chess_Interface}{\tt http\+://en.\+wikipedia.\+org/wiki/\+Universal\+\_\+\+Chess\+\_\+\+Interface}) 
+
+Other chess engines could be plugged in. 
+
+Makes extensive use of I\+C\+T\+K library, released under the G\+N\+U G\+P\+L license for public use, Copyright (c) 1997-\/2014 J. Varsoke $<$ictk.\+jvarsoke \mbox{[}at\mbox{]} neverbox.\+com$>$ Thanks and acknowledgements to Author\+: J. Varsoke. I can be reached at jvarsoke at users sourceforge net. see at \href{http://ictk.sourceforge.net/#downloads,}{\tt http\+://ictk.\+sourceforge.\+net/\#downloads,} \href{http://ictk.sourceforge.net/docs/current/}{\tt http\+://ictk.\+sourceforge.\+net/docs/current/} , and samples at Github\+: \href{https://github.com/jvarsoke/ictk/tree/master/src/samples#simplepgndemo}{\tt https\+://github.\+com/jvarsoke/ictk/tree/master/src/samples\#simplepgndemo}. 
+
+Created by simon on 31/03/15. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classswantech_1_1_chess_engine_a206b7f60195b050af7bf73124a359bd5}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!Chess\+Engine@{Chess\+Engine}}
+\index{Chess\+Engine@{Chess\+Engine}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{Chess\+Engine}]{\setlength{\rightskip}{0pt plus 5cm}swantech.\+Chess\+Engine.\+Chess\+Engine (
+\begin{DoxyParamCaption}
+\item[{{\bf Play\+Colour}}]{new\+Engine\+Colour}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_a206b7f60195b050af7bf73124a359bd5}
+Default constructor. Sets up a new board with standard starting position Starts the \hyperlink{classswantech_1_1_stockfish}{Stockfish} engine.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Engine\+Colour} & from play\+Colour enum, W\+H\+I\+T\+E or B\+L\+A\+C\+K, the colour to be played by the chess engine \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classswantech_1_1_chess_engine_a4e2edbbc872baf9bd0f180a132090584}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!engine\+Move@{engine\+Move}}
+\index{engine\+Move@{engine\+Move}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{engine\+Move}]{\setlength{\rightskip}{0pt plus 5cm}Chess\+Move swantech.\+Chess\+Engine.\+engine\+Move (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_a4e2edbbc872baf9bd0f180a132090584}
+T\+H\+E B\+I\+G O\+N\+E, ask the engine to make a move!
+
+\begin{DoxyReturn}{Returns}
+the Chess\+Move made, i.\+e. the engine-\/controlled piece with before and after . N\+O\+T\+E that methods on Chess\+Move provide all the necessary ionformation for continuing play, such as is\+Check, is\+Check\+Mate() 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_aff2e5a7749c5e48afdbe544b879454fa}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!get\+Chess\+Board@{get\+Chess\+Board}}
+\index{get\+Chess\+Board@{get\+Chess\+Board}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{get\+Chess\+Board}]{\setlength{\rightskip}{0pt plus 5cm}Chess\+Board swantech.\+Chess\+Engine.\+get\+Chess\+Board (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_aff2e5a7749c5e48afdbe544b879454fa}
+\begin{DoxyReturn}{Returns}
+current Chess\+Board 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_a06277d63732bbc472ad1a61e0f5e5ae8}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!get\+Game\+F\+E\+N@{get\+Game\+F\+E\+N}}
+\index{get\+Game\+F\+E\+N@{get\+Game\+F\+E\+N}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{get\+Game\+F\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}String swantech.\+Chess\+Engine.\+get\+Game\+F\+E\+N (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_a06277d63732bbc472ad1a61e0f5e5ae8}
+Returns the F\+E\+N description of the game F\+E\+N is Forsyth–\+Edwards Notation, see \href{http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation}{\tt http\+://en.\+wikipedia.\+org/wiki/\+Forsyth\%\+E2\%80\%93\+Edwards\+\_\+\+Notation} eg from test suite\+: rnbqkbnr/p1pppppp/1p6/8/1\+P6/\+N7/\+P1\+P\+P\+P\+P\+P\+P/\+R1\+B\+Q\+K\+B\+N\+R b K\+Qkq b3 0 1 upper\+Case isd White, lowercase is Black, numbers represent empty square counts on a rank eg 1p6 above is rank 6, blank square, black pawn, 6 blanks. The \char`\"{} b \char`\"{} means Black move, K\+Qkq means black and white can both castle on either side, b3 is en-\/passant (?) and \char`\"{}0 1\char`\"{} is number of halfmoves and fullmoves. See Wikipedia for full detail
+
+\begin{DoxyReturn}{Returns}
+string F\+E\+N 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_a529858ea407075c6a4daf04d5b3dd51e}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!get\+Legal\+Moves@{get\+Legal\+Moves}}
+\index{get\+Legal\+Moves@{get\+Legal\+Moves}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{get\+Legal\+Moves}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<$Square$>$ swantech.\+Chess\+Engine.\+get\+Legal\+Moves (
+\begin{DoxyParamCaption}
+\item[{Square}]{start\+Square}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_a529858ea407075c6a4daf04d5b3dd51e}
+Given a board square that has a piece on it, returns a list of squares that this piece is permitted to move to, based on the current board state. Excludes squares that would be legal but would result in check. Stateless -\/ this method can be called any number of times with same or different squares 
+
+Note Square is defined in I\+C\+T\+K jar class Square
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Square} & -\/ rank and file class , must contain a piece \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of zero or more squares. Returns N\+U\+L\+L if start\+Square is empty (so don\textquotesingle{}t). List is E\+M\+P\+T\+Y (length == 0) if there are N\+O legal moves (including only moves that result in check) 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_ad09f3dd52a728a42cdb1515e7104f03e}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!get\+Piece\+At@{get\+Piece\+At}}
+\index{get\+Piece\+At@{get\+Piece\+At}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{get\+Piece\+At}]{\setlength{\rightskip}{0pt plus 5cm}Chess\+Piece swantech.\+Chess\+Engine.\+get\+Piece\+At (
+\begin{DoxyParamCaption}
+\item[{Square}]{sq}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_ad09f3dd52a728a42cdb1515e7104f03e}
+Returns the Chess\+Piece at the nominated Square Example\+: Square s = new Square(\textquotesingle{}a\textquotesingle{}, \textquotesingle{}1\textquotesingle{}); Piece p = get\+Piece\+At(s); if (p.\+is\+Queen().......)
+
+
+\begin{DoxyParams}{Parameters}
+{\em sq,Square} & object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Piece, or null if its an empty square 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_a0e8106f504de2a1cec26d523865c3d02}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!make\+My\+Move@{make\+My\+Move}}
+\index{make\+My\+Move@{make\+My\+Move}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{make\+My\+Move}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Chess\+Engine\+Errors} swantech.\+Chess\+Engine.\+make\+My\+Move (
+\begin{DoxyParamCaption}
+\item[{Square}]{start\+Square, }
+\item[{Square}]{end\+Square}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_a0e8106f504de2a1cec26d523865c3d02}
+Used by the \textquotesingle{}Other\textquotesingle{} player, not this \hyperlink{classswantech_1_1_chess_engine}{Chess\+Engine}, to make their move
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Square.} & There are several constructors for Square, eg new Square (byte File, byte Row) \\
+\hline
+{\em end\+Square} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{enumswantech_1_1_chess_engine_errors}{Chess\+Engine\+Errors}, O\+K if all good. 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_ae6976be646e833558d31d2e3bf242773}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!whose\+Move@{whose\+Move}}
+\index{whose\+Move@{whose\+Move}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{whose\+Move}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Play\+Colour} swantech.\+Chess\+Engine.\+whose\+Move (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_ae6976be646e833558d31d2e3bf242773}
+Returns the colour of the current player
+
+\begin{DoxyReturn}{Returns}
+Play\+Colour.\+B\+L\+A\+C\+K or .W\+H\+I\+T\+E 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/simon/\+M\+Sc/\+M24\+\_\+\+S\+W\+\_\+\+Team\+\_\+\+Project/\+Test/\+V1/src/swantech/Chess\+Engine.\+java\end{DoxyCompactItemize}
