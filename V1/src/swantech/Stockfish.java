@@ -1,6 +1,6 @@
 package swantech;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
+//import org.apache.commons.lang.exception.ExceptionUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,17 +39,19 @@ public class Stockfish {
 	 * @param None
 	 * @return True on success. False otherwise
 	 */
-	public boolean startEngine() {
+	public boolean startEngine() throws Exception{
 		try {
+			// keep - may need - System.out.println("Working Directory = " + System.getProperty("user.dir"));
 			engineProcess = Runtime.getRuntime().exec(PATH);
 			processReader = new BufferedReader(new InputStreamReader(
 					engineProcess.getInputStream()));
 			processWriter = new OutputStreamWriter(
 					engineProcess.getOutputStream());
 		} catch (Exception e) {
-			String errmesg = ExceptionUtils.getRootCauseMessage(e);
-			LG.log(Level.SEVERE, errmesg);
-			return false;
+			LG.log(Level.SEVERE, "Cannot start Chess Engine");
+			//e.printStackTrace();
+			throw e;
+			//return false;
 		}
 		return true;
 	}

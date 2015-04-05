@@ -147,14 +147,17 @@ public class ChessEngineTest {
     public  void testKnightFail() throws  Exception {
         System.out.println("This test should FAIL and cause TWO SEVERE logs and a stacktrace in ChessEngine");
         ChessEngineErrors e = chessEngine.makeMyMove(new Square('b', '1'), new Square('a', '4'));
-        assertEquals("Knight b1 to a3", ChessEngineErrors.ILLEGAL_MOVE, e);
+        assertEquals("Knight b1 to a4", ChessEngineErrors.ILLEGAL_MOVE, e);
     }
 
     @Test
     public  void testSomeMovesAndFEN() throws  Exception {
         // Make three moves...
-        ChessEngineErrors e = chessEngine.makeMyMove(new Square ('b', '1'), new Square('a', '3'));
-        chessEngine.engineMove();
+        ChessEngineErrors e = chessEngine.makeMyMove(new Square('b', '1'), new Square('a', '3'));
+        String dbgfen = chessEngine.getGameFEN();
+        ChessMove m = chessEngine.engineMove();
+        dbgfen = chessEngine.getGameFEN();
+
         e = chessEngine.makeMyMove(new Square ('b', '2'), new Square('b', '4'));
 
         // Check the status of the knight...
@@ -162,7 +165,8 @@ public class ChessEngineTest {
         assertEquals("Knight b1 to a3", ChessEngineErrors.OK, e);
         assertEquals("Expect a Knight at a3", k.toString(), "Knight");
         String fen = chessEngine.getGameFEN();
-        assertEquals("Check board after three moves", fen, "rnbqkbnr/p1pppppp/1p6/8/1P6/N7/P1PPPPPP/R1BQKBNR b KQkq b3 0 1");
+        // NB this depends on the engine and could easily change
+        assertEquals("Check board after three moves", fen, "rnbqkbnr/ppp1pppp/8/3p4/1P6/N7/P1PPPPPP/R1BQKBNR b KQkq b3 0 1");
     }
 
 }

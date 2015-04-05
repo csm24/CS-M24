@@ -60,8 +60,8 @@ public class ChessEngine {
      *
      * @param newEngineColour from playColour enum, WHITE or BLACK, the colour to be played by the chess engine
      */
-    public ChessEngine(PlayColour newEngineColour) {
-
+    public ChessEngine(PlayColour newEngineColour)  throws Exception
+    {
         try {
             engineColour = newEngineColour;
             game = new ChessGame();
@@ -88,8 +88,7 @@ public class ChessEngine {
 
             board.setBlackMove(engineColour == PlayColour.WHITE); // start as White or Black
 
-            System.out.println("Working Directory = " +
-                    System.getProperty("user.dir"));
+            // keep for debugging - System.out.println("Working Directory = " + System.getProperty("user.dir"));
             stockfish = new Stockfish("./engine/stockfish");  // create new stockfish interface
             if (!stockfish.startEngine()) {
                 LG.log(Level.SEVERE, "Cannot start StockFish chess engine");
@@ -106,6 +105,7 @@ public class ChessEngine {
         } catch (Exception e) {
             LG.log(Level.SEVERE, "ChessEngine constructor FAILED");
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -174,7 +174,14 @@ public class ChessEngine {
     private Move makeAMove(Square startSquare, Square endSquare) throws Exception {
         try {
             Move m = new ChessMove((ChessBoard) board, startSquare.getFile(), startSquare.getRank(), endSquare.getFile(), endSquare.getRank());
-            System.out.println(m);
+            if (m.isLegal()) {
+                history.add(m);  // This executes the move, and records it in history
+            } else {
+                LG.log(Level.SEVERE, "makeMyMove Illegal move : " + m.toString());
+                throw new IllegalMoveException("ChessEngine:makeAMove ChessMove was illegal : " + m.toString());
+            }
+
+            //System.out.println(m);
             return m;
         } catch (Exception e) {
             LG.log(Level.SEVERE, "makeAMove failed to create new move");
@@ -222,12 +229,6 @@ public class ChessEngine {
 
             Move m = makeAMove(startSquare, endSquare); // Th eITYCK method that does the work
 
-            if (m.isLegal()) {
-                history.add(m);  // This executes the move, and records it in history
-            } else {
-                LG.log(Level.SEVERE, "makeMyMove Illegal move");
-                return ChessEngineErrors.ILLEGAL_MOVE;
-            }
         } catch (Exception e) {
             LG.log(Level.SEVERE, "ChessEngine makeMyMove FAILED");
             e.printStackTrace();
@@ -325,11 +326,12 @@ public class ChessEngine {
             }
 
             // The big one, calculate a move
-            responses = askStockfish("go", 2000);
+            responses = askStockfish("go", 500);  // TODO reduce 2000 ??
             // Should get several lines, last one is important and says eg:
-            // bestmove g1f3 ponder d7d5
+            // bestmove g1f3 ponder d7d5 -
+            // check words(0) == bestmove, and if ok, use words(1) for the move
             String lastLine = responses.get(responses.size() - 1);
-            List<String> lastLineWords = Arrays.asList(lastLine.split(" "));
+            List<String> lastLineWords = Arrays.asList(lastLine.split(" "));  // and split up into distinct words,
 
             if (!lastLineWords.get(0).equals("bestmove")) {
                 throw new Exception("ChessEngine:chessMove error no BestMove response, : " + lastLine);
@@ -340,8 +342,8 @@ public class ChessEngine {
             Square fromSquare = new Square(m.charAt(0), m.charAt(1));
             Square toSquare = new Square(m.charAt(2), m.charAt(3));
 
-             move = (ChessMove) makeAMove(fromSquare, toSquare);
-
+            move = (ChessMove) makeAMove(fromSquare, toSquare);
+            // System.out.println(move.dump());
 
         } catch (Exception e) {
             LG.log(Level.SEVERE, "engineMove FAILED");
