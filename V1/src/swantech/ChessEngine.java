@@ -220,7 +220,8 @@ public class ChessEngine {
         startSquare.setPiece(p);
         try {
             PlayColour c = board.isBlackMove() ? PlayColour.BLACK : PlayColour.WHITE;
-            if ((!EnginePlaying && (c == engineColour)) || (EnginePlaying && (c != engineColour))) {
+            if ((!EnginePlaying && (c == engineColour)) || (EnginePlaying && (c != engineColour)))
+            {
                 // WRONG colour, whether player or engine move
                 String who = EnginePlaying ? "Engine" : "Player";
                 LG.log(Level.SEVERE, "makeMyMove wrong player colour in move by : " + who);
@@ -259,7 +260,7 @@ public class ChessEngine {
      * Calls getGamefen but truncates to basic board position text only,
      * used to set up chess engine
      *
-     * @return FEN board position only eg  rnbqkbnr/p1pppppp/1p6/8/1P6/N7/P1PPPPPP/R1BQKBNR
+     * @return FEN board position only eg  rnbqkbnr/p1pppppp/1p6/8/1P6/N7/P1PPPPPP/R1BQKBNR b
      */
     private String getGameShortFEN() {
         String fen = getGameFEN();
