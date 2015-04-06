@@ -119,6 +119,8 @@ $(document).ready(function(){initNavTree('classswantech_1_1_chess_engine.html','
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a206b7f60195b050af7bf73124a359bd5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswantech_1_1_chess_engine.html#a206b7f60195b050af7bf73124a359bd5">ChessEngine</a> (<a class="el" href="enumswantech_1_1_play_colour.html">PlayColour</a> newEngineColour)  throws Exception     </td></tr>
 <tr class="separator:a206b7f60195b050af7bf73124a359bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5030a1e441c0868999509e35652636c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="enumswantech_1_1_chess_engine_errors.html">ChessEngineErrors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswantech_1_1_chess_engine.html#aa5030a1e441c0868999509e35652636c">setChessplayer</a> (<a class="el" href="enumswantech_1_1_play_colour.html">PlayColour</a> c, String firstName, String lastName)</td></tr>
+<tr class="separator:aa5030a1e441c0868999509e35652636c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a529858ea407075c6a4daf04d5b3dd51e"><td class="memItemLeft" align="right" valign="top">ArrayList&lt; Square &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswantech_1_1_chess_engine.html#a529858ea407075c6a4daf04d5b3dd51e">getLegalMoves</a> (Square startSquare)</td></tr>
 <tr class="separator:a529858ea407075c6a4daf04d5b3dd51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad09f3dd52a728a42cdb1515e7104f03e"><td class="memItemLeft" align="right" valign="top">ChessPiece&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classswantech_1_1_chess_engine.html#ad09f3dd52a728a42cdb1515e7104f03e">getPieceAt</a> (Square sq)</td></tr>
@@ -299,6 +301,47 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa5030a1e441c0868999509e35652636c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="enumswantech_1_1_chess_engine_errors.html">ChessEngineErrors</a> swantech.ChessEngine.setChessplayer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="enumswantech_1_1_play_colour.html">PlayColour</a>&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>firstName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>lastName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Used to set the White and Black player names </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Colour,PlayColour.White</td><td>or .Black </td></tr>
+    <tr><td class="paramname">firstName</td><td>eg Boris </td></tr>
+    <tr><td class="paramname">lastName</td><td>eg Spasky </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>error code, <a class="el" href="enumswantech_1_1_chess_engine_errors.html#a6e26430f10fe122419147d156b9c15f2" title="Success. ">ChessEngineErrors.OK</a> if all is well </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae6976be646e833558d31d2e3bf242773"></a>
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +368,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>swantech</b></li><li class="navelem"><a class="el" href="classswantech_1_1_chess_engine.html">ChessEngine</a></li>
-    <li class="footer">Generated on Sun Apr 5 2015 17:52:57 for ChessEngine V1 by
+    <li class="footer">Generated on Mon Apr 6 2015 11:46:59 for ChessEngine V1 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

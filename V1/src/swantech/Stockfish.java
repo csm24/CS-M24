@@ -84,6 +84,7 @@ public class Stockfish {
 		StringBuffer buffer = new StringBuffer();
 		try {
 			Thread.sleep(waitTime);
+			//Thread.sleep(10);
 			sendCommand("isready");
 			while (true) {
 				String text = processReader.readLine();

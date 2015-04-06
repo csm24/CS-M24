@@ -154,12 +154,16 @@ public class ChessEngineTest {
     public  void testSomeMovesAndFEN() throws  Exception {
         // Make three moves...
         ChessEngineErrors e = chessEngine.makeMyMove(new Square('b', '1'), new Square('a', '3'));
-        String dbgfen = chessEngine.getGameFEN();
-        ChessMove m = chessEngine.engineMove();
-        dbgfen = chessEngine.getGameFEN();
+        assertEquals("Knight b1->a3", e, ChessEngineErrors.OK);
+
+        ChessMove m = chessEngine.engineMove(); // usually the engine does pawn D7 -> D5
+        assertTrue("1st ChessEngine move" , m.getDestination().toString().equals("d5"));
+        // MAY NOT be an error if this fails, the chess engine may make another move,
+        // if different engine or different parameters
 
         e = chessEngine.makeMyMove(new Square ('b', '2'), new Square('b', '4'));
-
+        assertEquals("Pawn b2 -> b4", e, ChessEngineErrors.OK);
+        assertTrue("Pawn b2 -> b4", chessEngine.getPieceAt(new Square('b', '4')).isPawn());
         // Check the status of the knight...
         ChessPiece k = chessEngine.getPieceAt(new Square('a', '3'));
         assertEquals("Knight b1 to a3", ChessEngineErrors.OK, e);

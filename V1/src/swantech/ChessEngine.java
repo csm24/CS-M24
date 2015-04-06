@@ -66,20 +66,10 @@ public class ChessEngine {
             engineColour = newEngineColour;
             game = new ChessGame();
 
+            // Set default players. Can be over-ridden once instance created
             gi = new ChessGameInfo();
-            // TODO Placeholders for a full player profile parameter later
-            //white player
-            player = new ChessPlayer();
-            player.setFirstName("Bobby");
-            player.setLastName("Fischer");
-            gi.setWhite(player);
-
-            //black player
-            player = new ChessPlayer();
-            player.setFirstName("Boris");
-            player.setLastName("Spasky");
-            gi.setBlack(player);
-
+            setChessplayer(PlayColour.BLACK, "Boris", "Spasky");
+            setChessplayer(PlayColour.WHITE, "Bobby", "Fischer");
             game.setGameInfo(gi);
 
             //setup ready for the moves
@@ -96,7 +86,7 @@ public class ChessEngine {
             }
 
             // We are not doing anything with this yet, just make sure we get a response
-            List<String> responses = askStockfish("uci", 250);
+            List<String> responses = askStockfish("uci", 100);
             if (responses.size() < 2) {
                 // something wrong, should be 22 lines of text here
                 throw new Exception("ChessEngine constructor, askStockfish wrong response (too short)");
@@ -107,6 +97,26 @@ public class ChessEngine {
             e.printStackTrace();
             throw e;
         }
+    }
+
+    /**
+     * Used to set the White and Black player names
+     * @param Colour, PlayColour.White or .Black
+     * @param firstName  eg Boris
+     * @param lastName eg Spasky
+     * @return error code, ChessEngineErrors.OK if all is well
+     */
+    public ChessEngineErrors setChessplayer (PlayColour c, String firstName, String lastName)
+    {
+        // gi is global private ChessGFameInfo
+        player = new ChessPlayer();
+        player.setFirstName(firstName);
+        player.setLastName(lastName);
+        if (c.isBlack())
+            gi.setBlack(player);
+        else
+            gi.setWhite(player);
+        return ChessEngineErrors.OK;
     }
 
     /**
@@ -321,13 +331,13 @@ public class ChessEngine {
             }
 
             // Set up the game positions in the engine
-            List<String> responses = askStockfish("position fen " + getGameShortFEN(), 250);
+            List<String> responses = askStockfish("position fen " + getGameShortFEN(), 100);
             if (responses.size() > 1) {
                  new Exception("ChessEngine:chessMove error response too long at : " + responses.size() + " (Should be 1 blank line)");
             }
 
             // The big one, calculate a move
-            responses = askStockfish("go", 500);  // TODO reduce 2000 ??
+            responses = askStockfish("go", 250);  // TODO reduce 2000 ??
             // Should get several lines, last one is important and says eg:
             // bestmove g1f3 ponder d7d5 -
             // check words(0) == bestmove, and if ok, use words(1) for the move

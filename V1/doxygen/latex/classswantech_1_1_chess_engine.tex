@@ -16,6 +16,8 @@ Makes extensive use of I\+C\+T\+K library, released under the G\+N\+U G\+P\+L li
 \item 
 \hyperlink{classswantech_1_1_chess_engine_a206b7f60195b050af7bf73124a359bd5}{Chess\+Engine} (\hyperlink{enumswantech_1_1_play_colour}{Play\+Colour} new\+Engine\+Colour)  throws Exception     
 \item 
+\hyperlink{enumswantech_1_1_chess_engine_errors}{Chess\+Engine\+Errors} \hyperlink{classswantech_1_1_chess_engine_aa5030a1e441c0868999509e35652636c}{set\+Chessplayer} (\hyperlink{enumswantech_1_1_play_colour}{Play\+Colour} c, String first\+Name, String last\+Name)
+\item 
 Array\+List$<$ Square $>$ \hyperlink{classswantech_1_1_chess_engine_a529858ea407075c6a4daf04d5b3dd51e}{get\+Legal\+Moves} (Square start\+Square)
 \item 
 Chess\+Piece \hyperlink{classswantech_1_1_chess_engine_ad09f3dd52a728a42cdb1515e7104f03e}{get\+Piece\+At} (Square sq)
@@ -150,6 +152,27 @@ Used by the \textquotesingle{}Other\textquotesingle{} player, not this \hyperlin
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \hyperlink{enumswantech_1_1_chess_engine_errors}{Chess\+Engine\+Errors}, O\+K if all good. 
+\end{DoxyReturn}
+\hypertarget{classswantech_1_1_chess_engine_aa5030a1e441c0868999509e35652636c}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!set\+Chessplayer@{set\+Chessplayer}}
+\index{set\+Chessplayer@{set\+Chessplayer}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
+\subsubsection[{set\+Chessplayer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Chess\+Engine\+Errors} swantech.\+Chess\+Engine.\+set\+Chessplayer (
+\begin{DoxyParamCaption}
+\item[{{\bf Play\+Colour}}]{c, }
+\item[{String}]{first\+Name, }
+\item[{String}]{last\+Name}
+\end{DoxyParamCaption}
+)}\label{classswantech_1_1_chess_engine_aa5030a1e441c0868999509e35652636c}
+Used to set the White and Black player names 
+\begin{DoxyParams}{Parameters}
+{\em Colour,Play\+Colour.\+White} & or .Black \\
+\hline
+{\em first\+Name} & eg Boris \\
+\hline
+{\em last\+Name} & eg Spasky \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error code, \hyperlink{enumswantech_1_1_chess_engine_errors_a6e26430f10fe122419147d156b9c15f2}{Chess\+Engine\+Errors.\+O\+K} if all is well 
 \end{DoxyReturn}
 \hypertarget{classswantech_1_1_chess_engine_ae6976be646e833558d31d2e3bf242773}{}\index{swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}!whose\+Move@{whose\+Move}}
 \index{whose\+Move@{whose\+Move}!swantech\+::\+Chess\+Engine@{swantech\+::\+Chess\+Engine}}
