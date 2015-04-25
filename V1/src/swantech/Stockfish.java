@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.function.Supplier;
+//import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,7 +47,13 @@ public class Stockfish {
 					engineProcess.getInputStream()));
 			processWriter = new OutputStreamWriter(
 					engineProcess.getOutputStream());
-		} catch (Exception e) {
+		}
+		catch (IOException e){ //AIF
+			LG.log(Level.WARNING, "Try checking that the stockfish engine used belongs to your OS," +
+					"before initialization in the chess engine class");
+			throw e;
+		}
+		catch (Exception e) {
 			LG.log(Level.SEVERE, "Cannot start Chess Engine");
 			//e.printStackTrace();
 			throw e;

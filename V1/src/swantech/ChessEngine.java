@@ -39,8 +39,8 @@ import static ictk.boardgame.chess.io.FEN.*;
 
 public class ChessEngine {
 
-    ChessGame game = null;
-    ChessBoard board = null;
+    ictk.boardgame.chess.ChessGame game = null;
+    ictk.boardgame.chess.ChessBoard board = null;
     History history = null;
     Move move = null,
             e4 = null;
@@ -54,6 +54,40 @@ public class ChessEngine {
     private final static Logger LG = Logger.getLogger(ChessEngine.class.getName());
 
 
+    /**
+     *
+     * @param thisColour
+     * @return The other colour
+     * eg otherColour(PlayColour.BLACK) returns PlayColour.WHITE
+     */
+    public static PlayColour otherColour (PlayColour thisColour) {
+        if (thisColour == PlayColour.BLACK)
+            return PlayColour.WHITE;
+        else
+            return PlayColour.BLACK;
+    }
+
+    /**
+     * Finds the square for a piece, or null if not on board
+     * @return
+     */
+    public Square findPiece (String name, String colour)
+    {// TODO: this is rubbish
+        Square s=null;
+
+    for (int r = 1; r <= 8; r++)
+        for (int c = 1; c <= 8; c++) {
+             s = board.getSquare(r, c);
+            ChessPiece p = (ChessPiece) s.getPiece();
+            if ((p != null) && (p.isKing())){
+                return s;
+            }
+
+        }
+
+       return s;
+
+    }
     /**
      * Default constructor. Sets up a new board with standard starting position
      * Starts the Stockfish engine.
@@ -74,12 +108,16 @@ public class ChessEngine {
 
             //setup ready for the moves
             history = game.getHistory();
-            board = (ChessBoard) game.getBoard();
+            board = (ictk.boardgame.chess.ChessBoard) game.getBoard();
 
             board.setBlackMove(engineColour == PlayColour.WHITE); // start as White or Black
 
             // keep for debugging - System.out.println("Working Directory = " + System.getProperty("user.dir"));
-            stockfish = new Stockfish("./engine/stockfish");  // create new stockfish interface
+
+            //Uncomment one of the next two stockfish initialization depending on your OS
+            stockfish = new Stockfish("./engine/stockfish");  // create new stockfish interface IOS
+            //stockfish = new Stockfish("./engine/stockfish-6-32.exe");  // create new stockfish interface WINDOWS
+
             if (!stockfish.startEngine()) {
                 LG.log(Level.SEVERE, "Cannot start StockFish chess engine");
                 throw new Exception("Cannot start StockFish chess engine");
@@ -119,6 +157,10 @@ public class ChessEngine {
         return ChessEngineErrors.OK;
     }
 
+    private static String colourFromBool(boolean isBlack)
+    {
+        return isBlack?"Black":"White";
+    }
     /**
      * Given a board square that has a piece on it, returns a list of squares that this piece is permitted to move to,
      * based on the current board state.
@@ -141,10 +183,19 @@ public class ChessEngine {
         ChessPiece thisPiece = (ChessPiece) thisSquare.getPiece();
         if (thisPiece == null) return null; // Null piece as the square is empty
 
-        boolean wasBlackMove = board.isBlackMove();  // save current move state
-        board.setBlackMove(thisPiece.isBlack()); // set the right player
+        // Is piece right colour?
+        PlayColour moveColour = board.isBlackMove()?PlayColour.BLACK : PlayColour.WHITE;
+        PlayColour pieceColour = thisPiece.isBlack()?PlayColour.BLACK : PlayColour.WHITE;
+        if (!moveColour.equals(pieceColour))
+            return null;
+
+        if (board.isBlackMove() != thisPiece.isBlack())
+        {
+            System.err.println("Internal error , piece is : " + colourFromBool(thisPiece.isBlack()) +
+                                    "Game turn is : " + colourFromBool(board.isBlackMove()));
+            return null;
+        }
         ArrayList<Square> legalMoves = (ArrayList<Square>) thisPiece.getLegalDests();
-        board.setBlackMove(wasBlackMove);
 
         return legalMoves;
     }
@@ -167,6 +218,20 @@ public class ChessEngine {
     }
 
     /**
+     * Gets a populate board square for the rank and fiule
+     * @param rank Chess board 'row', 1..8, 1 is White pieces, 2 is white pawns, 7 is black pawns, 8 is black pieces
+     * @param file 1..8 Left to Right
+     * @return a Square, including any piece on it
+     */
+    public Square getChessSquare (int rank, int file){
+        assert rank > 0 && rank <= 8 && file > 0 && file <= 8;
+
+        Square s = board.getSquare(file, rank);
+        return s;
+
+    }
+
+    /**
      * Returns the colour of the current player
      *
      * @return PlayColour.BLACK or .WHITE
@@ -183,15 +248,13 @@ public class ChessEngine {
      */
     private Move makeAMove(Square startSquare, Square endSquare) throws Exception {
         try {
-            Move m = new ChessMove((ChessBoard) board, startSquare.getFile(), startSquare.getRank(), endSquare.getFile(), endSquare.getRank());
+            Move m = new ChessMove((ictk.boardgame.chess.ChessBoard) board, startSquare.getFile(), startSquare.getRank(), endSquare.getFile(), endSquare.getRank());
             if (m.isLegal()) {
                 history.add(m);  // This executes the move, and records it in history
             } else {
                 LG.log(Level.SEVERE, "makeMyMove Illegal move : " + m.toString());
                 throw new IllegalMoveException("ChessEngine:makeAMove ChessMove was illegal : " + m.toString());
             }
-
-            //System.out.println(m);
             return m;
         } catch (Exception e) {
             LG.log(Level.SEVERE, "makeAMove failed to create new move");
@@ -238,7 +301,7 @@ public class ChessEngine {
                 return ChessEngineErrors.WRONG_COLOUR;
             }
 
-            Move m = makeAMove(startSquare, endSquare); // Th eITYCK method that does the work
+            Move m = makeAMove(startSquare, endSquare); // The ICTK method that does the work
 
         } catch (Exception e) {
             LG.log(Level.SEVERE, "ChessEngine makeMyMove FAILED");
@@ -262,7 +325,7 @@ public class ChessEngine {
      */
     public String getGameFEN() {
         FEN f = new FEN();
-        String fen = f.boardToString((ChessBoard) game.getBoard());
+        String fen = f.boardToString((ictk.boardgame.chess.ChessBoard) game.getBoard());
         return fen;
     }
 
@@ -284,8 +347,8 @@ public class ChessEngine {
     /**
      * @return current ChessBoard
      */
-    public ChessBoard getChessBoard() {
-        return board;
+    public ictk.boardgame.chess.ChessBoard getChessBoard() {
+        return (ictk.boardgame.chess.ChessBoard)board;
     }
 
     /**
@@ -354,7 +417,6 @@ public class ChessEngine {
             Square toSquare = new Square(m.charAt(2), m.charAt(3));
 
             move = (ChessMove) makeAMove(fromSquare, toSquare);
-            // System.out.println(move.dump());
 
         } catch (Exception e) {
             LG.log(Level.SEVERE, "engineMove FAILED");

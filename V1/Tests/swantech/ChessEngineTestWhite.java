@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 /**
  * Created by simon on 01/04/15.
  */
-public class ChessEngineTest {
+public class ChessEngineTestWhite {
 
     ChessEngine chessEngine;
     ChessBoard board;
@@ -26,6 +26,7 @@ public class ChessEngineTest {
         Square s = new Square((byte)f, (byte)r);
         return s;
     }
+
     @Before
     public void setUp() throws Exception {
         chessEngine = new ChessEngine(PlayColour.BLACK);
@@ -34,7 +35,6 @@ public class ChessEngineTest {
 
     @After
     public void tearDown() throws Exception {
-
     }
     
 
@@ -57,17 +57,13 @@ public class ChessEngineTest {
 
     @Test
     public void testBlackPawnsMoves() throws  Exception {
-        // Check the pawns can all move to two squares
+        // Expecting WHITE move so should ALL fail (null)
         ArrayList<Square> squares;
 
         for (int i = 1; i <= 8; i++) {
             // Black pawn, can move (from Bx) to Cx or Dx, x=1..8
             squares = chessEngine.getLegalMoves(intSquare(i, 7));
-            assertEquals("Black Pawn has two legal moves",    2, squares.size());
-            assertEquals("Black Pawn stays in same file",     i, squares.get(0).getFile());
-            assertEquals("Black Pawn can move 1 square",      6, squares.get(0).getRank());
-            assertEquals("Black Pawn stays in same file",     i, squares.get(1).getFile());
-            assertEquals("Black Pawn can move 2 squares",     5, squares.get(1).getRank());
+            assertNull("Black Pawn has NO legal moves",    squares);
         }
     }
     @Test
@@ -80,9 +76,9 @@ public class ChessEngineTest {
             if ((i != 2) && (i != 7)) {
                 // not a Knight
                 squares = chessEngine.getLegalMoves(intSquare(i, 1));
-                assertEquals ("Back row cannot move (except Knights) " + i,  0, squares.size());
+                assertEquals ("Back row (White) cannot move (except Knights) " + i,  0, squares.size());
                 squares = chessEngine.getLegalMoves(intSquare(i, 8));
-                assertEquals ("Black Back row cannot move (except Knights) " + i,  0, squares.size());
+                assertNull ("Black Back (Black) row cannot move AT ALL ", squares);
             }
         }
     }
@@ -114,18 +110,12 @@ public class ChessEngineTest {
         ArrayList<Square> squares;
 
         squares = chessEngine.getLegalMoves(intSquare(2, 8));
-        assertEquals("Black Knight b1 has two legal moves",    2, squares.size());
-        assertEquals("Black Knight b1 -> a3", 3, squares.get(0).getFile());
-        assertEquals("Black Knight b1 -> a3", 6, squares.get(0).getRank());
-        assertEquals("Black Knight b1 -> c3", 1, squares.get(1).getFile());
-        assertEquals("Black Knight b1 -> c3", 6, squares.get(1).getRank());
+        assertNull("Black Knight b1 has NO legal moves", squares);
 
         squares = chessEngine.getLegalMoves(intSquare(7, 8));
-        assertEquals("Black Knight b7 has two legal moves",    2, squares.size());
-        assertEquals("Black Knight b7 -> f3", 8, squares.get(0).getFile());
-        assertEquals("Black Knight b7 -> f3", 6, squares.get(0).getRank());
-        assertEquals("Black Knight b7 -> h3", 6, squares.get(1).getFile());
-        assertEquals("Black Knight b7 -> h3", 6, squares.get(1).getRank());
+        assertNull("Black Knight b1 has NO legal moves", squares);
+
+
     }
 
 

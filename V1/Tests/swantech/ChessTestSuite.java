@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ChessEngineTest.class,
+        ChessEngineTestWhite.class,
+        ChessEngineTestBlack.class,
         KnightMoveTest.class,
         StockFishTest.class
 
